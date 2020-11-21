@@ -1,0 +1,26 @@
+.bg {
+    background-color: #b1dcf7;
+}
+
+.name {
+    font-family: 'Open Sans B';
+    color: #0274b9;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.details {
+    .plan {
+        color: #0274b9;
+        font-family: 'Open Sans SB';
+    }
+    .cap {
+        color: #7e7e7e;
+        font-size: 14px;
+        font-family: 'Open Sans SB';
+    }
+    .date {
+        color: #c62828;
+        font-family: 'Open Sans SB';
+    }
+}

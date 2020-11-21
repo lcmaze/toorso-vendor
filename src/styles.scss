@@ -1,0 +1,61 @@
+body {
+    font-family: 'Open Sans R' !important;
+}
+
+@font-face {
+    font-family: 'Open Sans R';
+    src: url('/assets/opensans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans SB';
+    src: url('/assets/opensans/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans B';
+    src: url('/assets/opensans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: filterfont;
+    src: url('/assets/icon-fonts/Toorso-Filter-Icon-.ttf');
+}
+
+.filterfont {
+    font-family: filterfont;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+select:focus,
+select:active {
+    outline: 0 !important;
+}
+
+.w-80 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.custom-tooltip {
+    font-size: 14px !important;
+}
+
+// .mat-sidenav-container,
+// .mat-sidenav-content,
+// .mat-tab-body-content {
+//     transform: none !important;
+// }
+@media (max-width:1500px) {
+    .w-80 {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

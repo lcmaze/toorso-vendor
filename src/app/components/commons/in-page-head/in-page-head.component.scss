@@ -1,0 +1,18 @@
+.bg {
+    background-color: #b1dcf7;
+    padding: 8px 20px;
+    padding-right: 8px;
+    border-radius: 6px;
+    .name {
+        color: #0274b9;
+        font-size: 18px;
+        font-family: 'Open Sans B';
+        text-transform: uppercase;
+    }
+    img {
+        height: 46px;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 6px 8px;
+    }
+}

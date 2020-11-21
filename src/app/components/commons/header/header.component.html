@@ -1,0 +1,58 @@
+<section class="header">
+    <div class="w-80">
+        <div class="row mx-0">
+            <div class="col-12 col-md-5 p-0 py-4" [ngClass]="{'py-md-5': country===true, 'pt-md-5 pb-md-4': country===false}">
+                <a *ngIf="country" class="logo" href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                <a *ngIf="!country" class="logo2" href="index.html"><img src="assets/images/logo.png" alt=""></a>
+            </div>
+            <div class="col-12 col-md-7 p-0 d-flex justify-content-md-end">
+                <div class="buttons pt-md-5">
+                    <!-- <div>
+                        <button mat-button [matMenuTriggerFor]="currency">{{selectedcurrency}} <mat-icon>arrow_drop_down</mat-icon></button>
+                        <mat-menu #currency="matMenu">
+                            <ng-container *ngFor="let item of money">
+                                <button mat-menu-item (click)="currencyselect(item)">{{item}}</button>
+                            </ng-container>
+                        </mat-menu>
+                    </div> -->
+
+                    <ng-container>
+                        <div class="isloggedin" [matMenuTriggerFor]="login">
+                            <div class="usericon">
+                                <img src="assets/images/user.svg" alt="">
+                            </div>
+                            <div class="welcome">Logged in as
+                                <mat-icon>arrow_drop_down</mat-icon>
+                            </div>
+                            <div class="username">Kanmadam Resort</div>
+
+                            <mat-menu #login="matMenu" xPosition="after">
+                                <!-- <button style="width: 200px" mat-menu-item><mat-icon>account_circle</mat-icon> Profile</button> -->
+                                <button style="width: 200px" mat-menu-item><mat-icon>exit_to_app</mat-icon> Logout</button>
+                            </mat-menu>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-12 p-0 px-2" *ngIf="country">
+                <div class="location pb-3 pb-md-4">
+                    <!-- <mat-icon>place</mat-icon> -->
+                    <img class="flag" [src]="'assets/images/'+selectedflag" alt="">
+                    <button mat-button [matMenuTriggerFor]="country">{{selectedcountry}} <mat-icon>arrow_drop_down</mat-icon></button>
+                    <mat-menu #country="matMenu">
+                        <ng-container *ngFor="let item of locations">
+                            <button mat-menu-item (click)="countryselect(item.name, item.branch, item.states, item.flag)">{{item.name}}</button>
+                        </ng-container>
+                    </mat-menu>
+
+                    <button mat-button [matMenuTriggerFor]="state" *ngIf="branchvisible">{{selectedstate}} <mat-icon>arrow_drop_down</mat-icon></button>
+                    <mat-menu #state="matMenu">
+                        <ng-container *ngFor="let item of statelist">
+                            <button mat-menu-item (click)="stateselect(item)">{{item}}</button>
+                        </ng-container>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

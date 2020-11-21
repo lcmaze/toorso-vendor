@@ -1,0 +1,64 @@
+.header {
+    background-color: #c62828;
+}
+
+.logo img {
+    width: 290px;
+    max-width: 100%;
+}
+
+.logo2 img {
+    width: 240px;
+    max-width: 100%;
+}
+
+.buttons {
+    display: flex;
+    // align-items: center;
+    button {
+        color: #fff;
+        font-weight: 400;
+        text-transform: uppercase;
+        height: fit-content;
+    }
+    .isloggedin {
+        height: 52px;
+        color: #fff;
+        width: 210px;
+        user-select: none;
+        cursor: pointer;
+        .usericon {
+            float: left;
+            width: 64px;
+            margin-right: 14px;
+            // border-left: 1px solid #ffffff40;
+            padding-left: 16px;
+        }
+        .welcome {
+            font-size: 12px;
+            font-family: 'Open Sans SB';
+            mat-icon {
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+        .username {
+            font-size: 16px;
+            font-family: 'Open Sans';
+            white-space: nowrap;
+        }
+    }
+}
+
+.location {
+    color: #fff;
+    .flag {
+        height: 24px;
+        border: 1px solid #fff;
+        border-radius: 2px;
+    }
+    button {
+        font-weight: 400;
+        // text-transform: uppercase;
+    }
+}
