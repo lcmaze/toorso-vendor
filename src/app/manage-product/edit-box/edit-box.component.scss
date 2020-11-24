@@ -1,0 +1,26 @@
+.box {
+    border-radius: 6px;
+    border: 1px solid #027489;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 #00000030;
+    .header {
+        background-color: #0274B9;
+        .head {
+            color: #fff;
+            padding: 8px 16px;
+            font-family: 'Open Sans SB';
+            font-size: 18px;
+        }
+    }
+    .cnt {
+        background-color: #fff;
+        label {
+            color: #7e7e7e;
+            font-size: 14px;
+            font-family: 'Open Sans SB';
+        }
+        .form-control {
+            font-size: 14px;
+        }
+    }
+}
