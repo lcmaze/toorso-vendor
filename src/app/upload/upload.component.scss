@@ -1,0 +1,22 @@
+label {
+    color: #7e7e7e;
+    font-size: 14px;
+    font-family: 'Open Sans SB';
+    .material-icons {
+        font-size: 21px;
+        vertical-align: text-top;
+    }
+}
+
+.image {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 #00000030;
+    button {
+        font-size: 14px;
+        mat-icon {
+            font-size: 18px;
+        }
+    }
+    img {}
+}

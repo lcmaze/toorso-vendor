@@ -192,28 +192,12 @@
 
         <div class="box mb-4">
             <div class="head">Promotion</div>
-            <div class="cnt px-3 pb-2">
-                <div class="mt-2">
-                    <label>Promotion Text</label>
-                    <input type="text" class="form-control">
-                </div>
+            <div class="cnt px-3 pb-3">
                 <div class="row">
                     <div class="col-6 mt-2">
-                        <div (click)="picker1.open()">
-                            <label>Start Date</label>
-                            <input class="form-control" [matDatepicker]="picker1" placeholder="Start Date">
-                            <mat-datepicker #picker1></mat-datepicker>
-                        </div>
+                        <label>Promotion Text</label>
+                        <input type="text" class="form-control">
                     </div>
-                    <div class="col-6 mt-2">
-                        <div (click)="picker1.open()">
-                            <label>End Date</label>
-                            <input class="form-control" [matDatepicker]="picker1" placeholder="End Date">
-                            <mat-datepicker #picker1></mat-datepicker>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-6 mt-2">
                         <label>Banner Color</label>
                         <div class="custom-control custom-radio">
@@ -225,11 +209,26 @@
                             <label class="custom-control-label" for="radio2">Yellow</label>
                         </div>
                     </div>
-                    <div class="col-6 mt-2">
 
+                    <div class="col-6 mt-2">
+                        <div (click)="picker1.open()">
+                            <label>Start Date</label>
+                            <input class="form-control" [matDatepicker]="picker1" placeholder="Start Date">
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </div>
+                        <div class="mt-2" (click)="picker1.open()">
+                            <label>End Date</label>
+                            <input class="form-control" [matDatepicker]="picker1" placeholder="End Date">
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <div class="prof-pic">
+                            <img class="w-100" src="assets/images/offer.jpeg" alt="">
+                            <button mat-raised-button class="w-100 mt-2">Change Image</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
