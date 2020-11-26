@@ -1,0 +1,16 @@
+label {
+    color: #7e7e7e;
+    font-size: 14px;
+    font-family: 'Open Sans SB';
+    .material-icons {
+        font-size: 21px;
+        vertical-align: text-top;
+    }
+}
+
+.table-style {
+    overflow-x: auto;
+    .table {
+        min-width: 1024px;
+    }
+}
