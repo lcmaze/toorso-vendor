@@ -5,10 +5,11 @@ import { BookingRoutingModule } from './booking-routing.module';
 import { BookingComponent } from './booking.component';
 import { CommonsModule } from '../components/commons/commons.module';
 import { MaterialModule } from '../components/material/material.module';
+import { GuestComponent } from './guest/guest.component';
 
 
 @NgModule({
-  declarations: [BookingComponent],
+  declarations: [BookingComponent, GuestComponent],
   imports: [
     CommonModule,
     BookingRoutingModule,
