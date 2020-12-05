@@ -1,0 +1,52 @@
+.box {
+    background-color: #fff;
+    box-shadow: 0 0 8px 0 #00000020;
+    border-radius: 6px;
+    label {
+        color: #7e7e7e;
+        font-size: 14px;
+        font-family: 'Open Sans SB';
+        margin-bottom: 3px;
+        .material-icons {
+            font-size: 21px;
+            vertical-align: text-top;
+        }
+    }
+    h6 {
+        font-size: 14px;
+        font-family: 'Open Sans B';
+    }
+}
+
+.prof-pic {
+    width: 60px;
+    height: 60px;
+    background-color: #7e7e7e;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.name {
+    font-size: 18px;
+}
+
+.name::before {
+    content: '';
+    width: 54px;
+    height: 54px;
+    border-radius: 6px;
+    background-color: #c4c4c4;
+    margin-right: 16px;
+    float: left;
+    top: 0;
+}
+
+.flex-set {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.status {
+    background-image: linear-gradient(to right, #dddddd, #f3f3f3, #fff);
+}
