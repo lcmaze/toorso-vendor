@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HeadTitleComponent } from './head-title/head-title.component';
 import { InPageHeadComponent } from './in-page-head/in-page-head.component';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { InPageHeadComponent } from './in-page-head/in-page-head.component';
     NavigationComponent,
     HeadTitleComponent,
     InPageHeadComponent,
+    DateRangeComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { InPageHeadComponent } from './in-page-head/in-page-head.component';
     FooterComponent,
     NavigationComponent,
     HeadTitleComponent,
-    InPageHeadComponent
+    InPageHeadComponent,
+    DateRangeComponent
   ]
 })
 export class CommonsModule { }
