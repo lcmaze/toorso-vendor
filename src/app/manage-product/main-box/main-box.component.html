@@ -1,0 +1,16 @@
+<div class="mb-4" style="box-shadow: 0 4px 8px 0 #00000030; border: 1px solid #027489; ">
+    <div class="edit-box">
+        <app-edit-box [editable]=editable></app-edit-box>
+    </div>
+    <div class="bottom-options p-2">
+        <!-- <div>
+            <button mat-flat-button color="primary" class="mr-2">Add Promotion</button>
+        </div> -->
+        <div>
+            <button mat-stroked-button class="mr-2" *ngIf="editable" (click)="save()">Save</button>
+            <button mat-stroked-button class="mr-2" *ngIf="!editable" (click)="edit()">Edit</button>
+            <button mat-stroked-button color="warn" class="mr-2">Delete Table</button>
+            <button mat-stroked-button>Add New Table</button>
+        </div>
+    </div>
+</div>

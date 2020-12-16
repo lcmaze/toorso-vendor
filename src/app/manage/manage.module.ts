@@ -5,6 +5,7 @@ import { ManageRoutingModule } from './manage-routing.module';
 import { ManageComponent } from './manage.component';
 import { CommonsModule } from '../components/commons/commons.module';
 import { AddnewComponent } from './addnew/addnew.component';
+import { MaterialModule } from '../components/material/material.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AddnewComponent } from './addnew/addnew.component';
   imports: [
     CommonModule,
     ManageRoutingModule,
-    CommonsModule
+    CommonsModule,
+    MaterialModule
   ]
 })
 export class ManageModule { }

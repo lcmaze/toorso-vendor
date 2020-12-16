@@ -1,0 +1,44 @@
+label {
+    color: #7e7e7e;
+    font-size: 14px;
+    font-family: 'Open Sans SB';
+    .material-icons {
+        font-size: 21px;
+        vertical-align: text-top;
+    }
+}
+
+.box {
+    border-radius: 6px;
+    border: 1px solid #027489;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 #00000030;
+    .head {
+        background-color: #0274B9;
+        color: #fff;
+        padding: 8px 16px;
+        font-family: 'Open Sans SB';
+        font-size: 18px;
+    }
+    .cnt {
+        label {
+            font-size: 14px;
+            span {
+                font-size: 18px;
+                vertical-align: sub;
+                color: #3d3d3d;
+            }
+        }
+        select,
+        input {
+            font-size: 16px;
+            padding: 2px 10px !important;
+            height: unset !important;
+        }
+    }
+}
+
+.prof-pic img {
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 #00000030;
+}

@@ -7,10 +7,12 @@ import { CommonsModule } from '../components/commons/commons.module';
 import { MaterialModule } from '../components/material/material.module';
 import { EditBoxComponent } from './edit-box/edit-box.component';
 import { ProductFeaturesComponent } from './product-features/product-features.component';
+import { MainBoxComponent } from './main-box/main-box.component';
+import { PromotionComponent } from './promotion/promotion.component';
 
 
 @NgModule({
-  declarations: [ManageProductComponent, EditBoxComponent, ProductFeaturesComponent],
+  declarations: [ManageProductComponent, EditBoxComponent, ProductFeaturesComponent, MainBoxComponent, PromotionComponent],
   imports: [
     CommonModule,
     ManageProductRoutingModule,

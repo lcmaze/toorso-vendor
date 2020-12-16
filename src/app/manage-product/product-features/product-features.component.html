@@ -190,13 +190,22 @@
             </div>
         </div>
 
-        <div class="box mb-4">
+        <!-- <div class="box mb-4">
             <div class="head">Promotion</div>
             <div class="cnt px-3 pb-3">
                 <div class="row">
                     <div class="col-6 mt-2">
-                        <label>Promotion Text</label>
-                        <input type="text" class="form-control">
+                        <div>
+                            <label>Promotion Text</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div>
+                            <label>Select Room</label>
+                            <select class="form-control">
+                               <option disabled selected>Choose Any Room Type</option>
+                               <option value="1">One</option>
+                           </select>
+                        </div>
                     </div>
                     <div class="col-6 mt-2">
                         <label>Banner Color</label>
@@ -211,15 +220,13 @@
                     </div>
 
                     <div class="col-6 mt-2">
-                        <div (click)="picker1.open()">
-                            <label>Start Date</label>
-                            <input class="form-control" [matDatepicker]="picker1" placeholder="Start Date">
-                            <mat-datepicker #picker1></mat-datepicker>
+                        <div>
+                            <label>Discount %</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="mt-2" (click)="picker1.open()">
-                            <label>End Date</label>
-                            <input class="form-control" [matDatepicker]="picker1" placeholder="End Date">
-                            <mat-datepicker #picker1></mat-datepicker>
+                        <div>
+                            <label>Choose Date</label>
+                            <app-date-range></app-date-range>
                         </div>
                     </div>
                     <div class="col-6 mt-2">
@@ -230,5 +237,5 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>

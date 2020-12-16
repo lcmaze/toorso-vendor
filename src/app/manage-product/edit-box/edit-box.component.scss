@@ -1,8 +1,3 @@
-.box {
-    border-radius: 6px;
-    border: 1px solid #027489;
-    overflow: hidden;
-    box-shadow: 0 4px 8px 0 #00000030;
     .header {
         background-color: #0274B9;
         .head {
@@ -12,6 +7,7 @@
             font-size: 18px;
         }
     }
+    
     .cnt {
         background-color: #fff;
         label {
@@ -23,4 +19,3 @@
             font-size: 14px;
         }
     }
-}

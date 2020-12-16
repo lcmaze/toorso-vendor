@@ -1,0 +1,49 @@
+<app-in-page-head></app-in-page-head>
+
+<div class="row">
+    <div class="col-md-6 p-2 px-md-3">
+
+        <div class="box mt-4">
+            <div class="head">Promotion</div>
+            <div class="cnt px-3 pb-3">
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <div>
+                            <label>Promotion Text</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mt-2">
+                            <label>Select Room</label>
+                            <select class="form-control">
+                               <option disabled selected>Choose Any Room Type</option>
+                               <option value="1">One</option>
+                           </select>
+                        </div>
+                        <div class="mt-2">
+                            <label>Discount %</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mt-2">
+                            <label>Choose Date</label>
+                            <app-date-range></app-date-range>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <label>Banner Color</label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" required>
+                            <label class="custom-control-label" for="radio1">Red</label>
+                        </div>
+                        <div class="custom-control custom-radio mb-3">
+                            <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" required>
+                            <label class="custom-control-label" for="radio2">Yellow</label>
+                        </div>
+                        <div class="prof-pic">
+                            <img class="w-100" src="assets/images/offer.jpeg" alt="">
+                            <button mat-raised-button class="w-100 mt-2">Change Image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
