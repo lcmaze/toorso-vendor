@@ -7,3 +7,16 @@ label {
         vertical-align: text-top;
     }
 }
+.logo-img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+.logo-wrapper{
+    position: relative;
+    button{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}

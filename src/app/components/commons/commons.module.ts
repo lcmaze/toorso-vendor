@@ -9,6 +9,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HeadTitleComponent } from './head-title/head-title.component';
 import { InPageHeadComponent } from './in-page-head/in-page-head.component';
 import { DateRangeComponent } from './date-range/date-range.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DateRangeComponent } from './date-range/date-range.component';
     HeadTitleComponent,
     InPageHeadComponent,
     DateRangeComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { DateRangeComponent } from './date-range/date-range.component';
     NavigationComponent,
     HeadTitleComponent,
     InPageHeadComponent,
-    DateRangeComponent
+    DateRangeComponent,
+    LoginComponent
   ]
 })
 export class CommonsModule { }

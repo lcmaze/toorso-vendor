@@ -8,266 +8,232 @@
         </div>
     </div>
 </div>
-<div class="cnt px-3" [ngStyle]="style()">
-    <div class="row mt-3">
-        <div class="col-md-6 px-4 pb-3" style="border-right: 1px solid #eaeaea">
-            <div class="d-flex">
-                <label class="mr-2" style="white-space:nowrap;">Room Type 1</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div>
-                <label>Subtitle</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-md-3 col-lg-2">
-                    <div>
-                        <label>A/C</label>
-                        <div>
-                            <mat-slide-toggle></mat-slide-toggle>
-                        </div>
-                    </div>
+<form #productForm="ngForm" *ngIf="product">
+    <div class="cnt px-3" [ngStyle]="style()">
+        <div class="row mt-3">
+            <div class="col-md-6 px-4 pb-3" style="border-right: 1px solid #eaeaea">
+                <div class="d-flex">
+                    <label class="mr-2" style="white-space:nowrap;">Room Type 1</label>
+                    <input type="text" class="form-control" name="room_type" [(ngModel)]="product.room_type" required>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div>
-                        <label>Bed Qty</label>
-                        <select class="custom-select" id="inputGroupSelect02">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div>
-                        <label>Bed Type</label>
-                        <select class="custom-select" id="inputGroupSelect02">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div>
-                        <label>Qty of Room</label>
-                        <select class="custom-select" id="inputGroupSelect02">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-flex mt-4 mb-3">
-                <input type="text" class="form-control mr-2" placeholder="Add Room Number">
-                <button class="btn btn-dark">Add</button>
-            </div>
-
-            <mat-chip-list>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-            </mat-chip-list>
-
-            <div class="d-flex mt-4 mb-3">
-                <input type="text" class="form-control mr-2" placeholder="Add Room Amenities">
-                <button class="btn btn-dark">Add</button>
-            </div>
-
-            <mat-chip-list>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-            </mat-chip-list>
-
-            <div class="d-flex mt-4 mb-3">
-                <input type="text" class="form-control mr-2" placeholder="Add Highlited Features">
-                <button class="btn btn-dark">Add</button>
-            </div>
-
-            <mat-chip-list>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <mat-chip>
-                    One
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-            </mat-chip-list>
-        </div>
-
-        <div class="col-md-6 px-0">
-            <div class="px-4">
+    
                 <div>
-                    <label>Room Price - Off Season</label>
-                    <div class="row px-2">
-                        <div class="col-md-3 px-1" style="max-width: 80px;">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Price">
+                    <label>Subtitle</label>
+                    <input type="text" class="form-control" name="subtitle" [(ngModel)]="product.subtitle" required>
+                </div>
+    
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-2">
+                        <div>
+                            <label>A/C</label>
+                            <div>
+                                <mat-slide-toggle name="have_ac" [(ngModel)]="product.have_ac"></mat-slide-toggle>
+                            </div>
                         </div>
-
-                        <div class="col px-1" style="max-width:220px; min-width: 200px;">
-                            <app-date-range></app-date-range>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div>
+                            <label>Bed Qty</label>
+                            <select class="custom-select" name="bed_qty" [(ngModel)]="product.bed_qty">
+                                <option [value]="q" *ngFor="let q of bedQty">{{q}}</option>
+                              </select>
                         </div>
-
-                        <div class="col px-1">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Text">
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div>
+                            <label>Bed Type</label>
+                            <select class="custom-select" name="bed_type" [(ngModel)]="product.bed_type">
+                                <option [value]="t" *ngFor="let t of bedType">{{t}}</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div>
+                            <label>Qty of Room</label>
+                            <select class="custom-select" name="room_qty" [(ngModel)]="product.room_qty">
+                                <option [value]="r" *ngFor="let r of roomQty">{{r}}</option>
+                              </select>
                         </div>
                     </div>
                 </div>
-
-                <div class="mt-3">
-                    <label>Room Price - Off Season</label>
-                    <div class="row px-2">
-                        <div class="col-md-3 px-1" style="max-width: 80px;">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Price">
-                        </div>
-
-                        <div class="col px-1" style="max-width:220px; min-width: 200px;">
-                            <app-date-range></app-date-range>
-                        </div>
-
-                        <div class="col px-1">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Text">
-                        </div>
-                    </div>
+    
+                <p class="mb-0 mt-4">Add Room numbers (seperate by comma)</p>
+                <div class="d-flex mt-1 mb-3">
+                    <input type="text" class="form-control mr-2" placeholder="Add Room Number" name="room_numbers" [(ngModel)]="product.room_numbers">
+                    <!-- <button class="btn btn-dark">Add</button> -->
                 </div>
-
-                <div class="mt-3">
-                    <label>Room Price - Off Season</label>
-                    <div class="row px-2">
-                        <div class="col-md-3 px-1" style="max-width: 80px;">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Price">
-                        </div>
-
-                        <div class="col px-1" style="max-width:220px; min-width: 200px;">
-                            <app-date-range></app-date-range>
-                        </div>
-
-                        <div class="col px-1">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Text">
-                        </div>
-                    </div>
+    
+                <mat-chip-list *ngIf="product.room_numbers">
+                    <mat-chip *ngFor="let r of product.room_numbers.split(',')">
+                        {{r}}
+                    </mat-chip>
+                </mat-chip-list>
+    
+                <p class="mb-0 mt-4">Add Room Amenities (seperate by comma)</p>
+                <div class="d-flex mt-1 mb-3">
+                    <input type="text" class="form-control mr-2" placeholder="Add Room Amenities" name="room_amenities" [(ngModel)]="product.room_amenities">
+                    <!-- <button class="btn btn-dark">Add</button> -->
                 </div>
-
-                <div class="mt-3">
-                    <label>Room Price - Off Season</label>
-                    <div class="row px-2">
-                        <div class="col-md-3 px-1" style="max-width: 80px;">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Price">
-                        </div>
-
-                        <div class="col px-1" style="max-width:220px; min-width: 200px;">
-                            <app-date-range></app-date-range>
-                        </div>
-
-                        <div class="col px-1">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Text">
-                        </div>
-                    </div>
+    
+                <mat-chip-list *ngIf="product.room_amenities">
+                    <mat-chip *ngFor="let r of product.room_amenities.split(',')">
+                        {{r}}
+                    </mat-chip>
+                </mat-chip-list>
+    
+                <p class="mb-0 mt-4">Add Highlited Features (seperate by comma)</p>
+                <div class="d-flex mt-1 mb-3">
+                    <input type="text" class="form-control mr-2" placeholder="Add Highlited Features" name="highlited_features" [(ngModel)]="product.highlited_features">
+                    <!-- <button class="btn btn-dark">Add</button> -->
                 </div>
-
-                <div class="mt-3">
-                    <label>Room Price - Off Season</label>
-                    <div class="row px-2">
-                        <div class="col-md-3 px-1" style="max-width: 80px;">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Price">
-                        </div>
-
-                        <div class="col px-1" style="max-width:220px; min-width: 200px;">
-                            <app-date-range></app-date-range>
-                        </div>
-
-                        <div class="col px-1">
-                            <input class="form-control" style="height:100%;" type="text" placeholder="Text">
-                        </div>
-                    </div>
-                </div>
+    
+                <mat-chip-list *ngIf="product.highlited_features">
+                    <mat-chip *ngFor="let h of product.highlited_features.split(',')">
+                        {{h}}
+                    </mat-chip>
+                </mat-chip-list>
             </div>
-            <div class="px-4 pt-3 pb-4 mt-3" style="background-color:#eaeaea">
-                <div class="row px-2">
-                    <div class="col-9 px-1">
-                        <label>Add on (Payment) Features - Text</label>
-                        <input type="text" class="form-control">
+    
+            <div class="col-md-6 px-0">
+                <div class="px-4" *ngIf="product_prices">
+                    <div>
+                        <label>Room Price - Off Season</label>
+                        <div class="row px-2">
+                            <div class="col-md-3 px-1" style="max-width: 80px;">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Price" name="price_one" [(ngModel)]="product_prices.price_one">
+                            </div>
+    
+                            <div class="col px-1" style="max-width:220px; min-width: 200px;">
+                                <div class="form-control" (click)="picker_one.open()">
+                                    <mat-date-range-input [rangePicker]="picker_one">
+                                        <input matStartDate placeholder="From" readonly name="date_range_one_start" [(ngModel)]="product_prices.date_range_one_start" style="cursor: pointer;">
+                                        <input matEndDate placeholder="To" name="date_range_one_end" [(ngModel)]="product_prices.date_range_one_end" readonly style="cursor: pointer;">
+                                    </mat-date-range-input>
+                                </div>
+                                <mat-date-range-picker #picker_one></mat-date-range-picker>
+                            </div>
+    
+                            <div class="col px-1">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Text" name="text_one" [(ngModel)]="product_prices.text_one">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-3 px-1">
-                        <label>Value</label>
-                        <input type="text" class="form-control">
+    
+                    <div class="mt-3">
+                        <label>Room Price - Off Season</label>
+                        <div class="row px-2">
+                            <div class="col-md-3 px-1" style="max-width: 80px;">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Price" name="price_two" [(ngModel)]="product_prices.price_two">
+                            </div>
+    
+                            <div class="col px-1" style="max-width:220px; min-width: 200px;">
+                                <div class="form-control" (click)="picker_two.open()">
+                                    <mat-date-range-input [rangePicker]="picker_two">
+                                        <input matStartDate placeholder="From" readonly name="date_range_two_start" [(ngModel)]="product_prices.date_range_two_start" style="cursor: pointer;">
+                                        <input matEndDate placeholder="To" name="date_range_two_end" [(ngModel)]="product_prices.date_range_two_end" readonly style="cursor: pointer;">
+                                    </mat-date-range-input>
+                                </div>
+                                <mat-date-range-picker #picker_two></mat-date-range-picker>
+                            </div>
+    
+                            <div class="col px-1">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Text" name="text_two" [(ngModel)]="product_prices.text_two">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="mt-3">
+                        <label>Room Price - Off Season</label>
+                        <div class="row px-2">
+                            <div class="col-md-3 px-1" style="max-width: 80px;">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Price" name="price_three" [(ngModel)]="product_prices.price_three">
+                            </div>
+    
+                            <div class="col px-1" style="max-width:220px; min-width: 200px;">
+                                <div class="form-control" (click)="picker_three.open()">
+                                    <mat-date-range-input [rangePicker]="picker_three">
+                                        <input matStartDate placeholder="From" readonly name="date_range_three_start" [(ngModel)]="product_prices.date_range_three_start" style="cursor: pointer;">
+                                        <input matEndDate placeholder="To" name="date_range_three_end" [(ngModel)]="product_prices.date_range_three_end" readonly style="cursor: pointer;">
+                                    </mat-date-range-input>
+                                </div>
+                                <mat-date-range-picker #picker_three></mat-date-range-picker>
+                            </div>
+    
+                            <div class="col px-1">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Text" name="text_three" [(ngModel)]="product_prices.text_three">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="mt-3">
+                        <label>Room Price - Off Season</label>
+                        <div class="row px-2">
+                            <div class="col-md-3 px-1" style="max-width: 80px;">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Price" name="price_four" [(ngModel)]="product_prices.price_four">
+                            </div>
+    
+                            <div class="col px-1" style="max-width:220px; min-width: 200px;">
+                                <div class="form-control" (click)="picker_four.open()">
+                                    <mat-date-range-input [rangePicker]="picker_four">
+                                        <input matStartDate placeholder="From" readonly name="date_range_four_start" [(ngModel)]="product_prices.date_range_four_start" style="cursor: pointer;">
+                                        <input matEndDate placeholder="To" name="date_range_four_end" [(ngModel)]="product_prices.date_range_four_end" readonly style="cursor: pointer;">
+                                    </mat-date-range-input>
+                                </div>
+                                <mat-date-range-picker #picker_four></mat-date-range-picker>
+                            </div>
+    
+                            <div class="col px-1">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Text" name="text_four" [(ngModel)]="product_prices.text_four">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="mt-3">
+                        <label>Room Price - Off Season</label>
+                        <div class="row px-2">
+                            <div class="col-md-3 px-1" style="max-width: 80px;">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Price" name="price_five" [(ngModel)]="product_prices.price_five">
+                            </div>
+    
+                            <div class="col px-1" style="max-width:220px; min-width: 200px;">
+                                <div class="form-control" (click)="picker_five.open()">
+                                    <mat-date-range-input [rangePicker]="picker_five">
+                                        <input matStartDate placeholder="From" readonly name="date_range_five_start" [(ngModel)]="product_prices.date_range_five_start" style="cursor: pointer;">
+                                        <input matEndDate placeholder="To" name="date_range_five_end" [(ngModel)]="product_prices.date_range_five_end" readonly style="cursor: pointer;">
+                                    </mat-date-range-input>
+                                </div>
+                                <mat-date-range-picker #picker_five></mat-date-range-picker>
+                            </div>
+    
+                            <div class="col px-1">
+                                <input class="form-control" style="height:100%;" type="text" placeholder="Text" name="text_five" [(ngModel)]="product_prices.text_five">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row px-2 mt-2">
-                    <div class="col-9 px-1">
-                        <label>Add on (Payment) Features - Text</label>
-                        <input type="text" class="form-control">
+                <div class="px-4 pt-3 pb-4 mt-3" *ngIf="product_addons" style="background-color:#eaeaea">
+                    <div class="row px-2">
+                        <div class="col-9 px-1">
+                            <label>Add on (Payment) Features - Text</label>
+                            <input type="text" class="form-control" name="text_one" [(ngModel)]="product_addons.text_one">
+                        </div>
+                        <div class="col-3 px-1">
+                            <label>Value</label>
+                            <input type="text" class="form-control" name="value_one" [(ngModel)]="product_addons.value_one">
+                        </div>
                     </div>
-                    <div class="col-3 px-1">
-                        <label>Value</label>
-                        <input type="text" class="form-control">
+                    <div class="row px-2 mt-2">
+                        <div class="col-9 px-1">
+                            <label>Add on (Payment) Features - Text</label>
+                            <input type="text" class="form-control" name="text_two" [(ngModel)]="product_addons.text_two">
+                        </div>
+                        <div class="col-3 px-1">
+                            <label>Value</label>
+                            <input type="text" class="form-control" name="value_two" [(ngModel)]="product_addons.value_two">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>

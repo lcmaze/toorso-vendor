@@ -5,6 +5,7 @@ import { UploadRoutingModule } from './upload-routing.module';
 import { UploadComponent } from './upload.component';
 import { CommonsModule } from '../components/commons/commons.module';
 import { MaterialModule } from '../components/material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MaterialModule } from '../components/material/material.module';
     CommonModule,
     UploadRoutingModule,
     CommonsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class UploadModule { }

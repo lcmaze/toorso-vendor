@@ -6,6 +6,7 @@ import { ManageComponent } from './manage.component';
 import { CommonsModule } from '../components/commons/commons.module';
 import { AddnewComponent } from './addnew/addnew.component';
 import { MaterialModule } from '../components/material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MaterialModule } from '../components/material/material.module';
     CommonModule,
     ManageRoutingModule,
     CommonsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class ManageModule { }

@@ -10,7 +10,7 @@
     <li><a routerLink="/manage">Manage Database</a></li>
     <div class="sub">
         <li><a routerLink="/manage/add">Add Branch</a></li>
-        <li><a routerLink="/manage/paithalmala">Paithalmala Branch</a></li>
+        <li *ngFor="let b of branches"><a [routerLink]="'/manage/' + b.branch_id">{{b.vendor_name}}</a></li>
     </div>
     <li><a routerLink="/manage-product">Manage Product</a></li>
     <div class="sub">

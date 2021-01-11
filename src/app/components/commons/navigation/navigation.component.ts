@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mainData: MainService) { }
 
   ngOnInit() {
+    this.getBranches()
+  }
+
+  branches: any;
+  getBranches(){
+    this.mainData.get(`api/vendor/get-branches`).subscribe(data => {
+      this.branches = data;
+    })
   }
 
 }

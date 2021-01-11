@@ -1,49 +1,78 @@
 <app-in-page-head></app-in-page-head>
 
-<div class="row">
+<div class="row" *ngIf="promotions">
     <div class="col-md-6 p-2 px-md-3">
 
-        <div class="box mt-4">
-            <div class="head">Promotion</div>
-            <div class="cnt px-3 pb-3">
-                <div class="row">
-                    <div class="col-6 mt-2">
-                        <div>
-                            <label>Promotion Text</label>
-                            <input type="text" class="form-control">
+        <form #promotionForm="ngForm">
+            <div class="box mt-4">
+                <div class="head">Promotion</div>
+                <div class="cnt px-3 pb-3">
+                    <div class="row">
+                        <div class="col-6 mt-2">
+                            <div>
+                                <label>Promotion Text</label>
+                                <input type="text" class="form-control" name="promotion_text" [(ngModel)]="promotions.promotion_text" required>
+                            </div>
+                            <div class="mt-2">
+                                <label>Select Room</label>
+                                <select class="form-control" name="product_id" [(ngModel)]="promotions.product_id" required>
+                                   <option disabled selected value="0">Choose Any Room Type</option>
+                                   <option [value]="p.product_id" *ngFor="let p of products">{{p.room_type}} - {{p.vendor_name}}</option>
+                               </select>
+                            </div>
+                            <div class="mt-2">
+                                <label>Discount %</label>
+                                <input type="text" class="form-control" name="discount" [(ngModel)]="promotions.discount" required>
+                            </div>
+                            <div class="mt-2">
+                                <label>Choose Date</label>
+                                <!-- <app-date-range></app-date-range> -->
+                                <div class="form-control" (click)="picker_one.open()">
+                                    <mat-date-range-input [rangePicker]="picker_one">
+                                        <input matStartDate readonly name="start_date" [(ngModel)]="promotions.start_date" style="cursor: pointer;" required>
+                                        <input matEndDate name="end_date" [(ngModel)]="promotions.end_date" readonly style="cursor: pointer;" required>
+                                    </mat-date-range-input>
+                                </div>
+                                <mat-date-range-picker #picker_one></mat-date-range-picker>
+                            </div>
                         </div>
-                        <div class="mt-2">
-                            <label>Select Room</label>
-                            <select class="form-control">
-                               <option disabled selected>Choose Any Room Type</option>
-                               <option value="1">One</option>
-                           </select>
-                        </div>
-                        <div class="mt-2">
-                            <label>Discount %</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mt-2">
-                            <label>Choose Date</label>
-                            <app-date-range></app-date-range>
-                        </div>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label>Banner Color</label>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" required>
-                            <label class="custom-control-label" for="radio1">Red</label>
-                        </div>
-                        <div class="custom-control custom-radio mb-3">
-                            <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" required>
-                            <label class="custom-control-label" for="radio2">Yellow</label>
-                        </div>
-                        <div class="prof-pic">
-                            <img class="w-100" src="assets/images/offer.jpeg" alt="">
-                            <button mat-raised-button class="w-100 mt-2">Change Image</button>
+                        <div class="col-6 mt-2">
+                            <label>Banner Color</label><br>
+
+                            <mat-radio-group aria-label="Select an option" name="banner_color" color="primary" class="mb-4" 
+                            required [(ngModel)]="promotions.banner_color">
+                                <mat-radio-button value="#c62828">Red&nbsp;</mat-radio-button>
+                                <mat-radio-button value="#ffeb3b">Yellow</mat-radio-button>
+                            </mat-radio-group>
+
+                            <!-- <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" 
+                                required [(ngModel)]="promotions.banner_color">
+                                <label class="custom-control-label" for="radio1">Red</label>
+                            </div>
+                            <div class="custom-control custom-radio mb-3">
+                                <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" 
+                                required [(ngModel)]="promotions.banner_color">
+                                <label class="custom-control-label" for="radio2">Yellow</label>
+                            </div> -->
+                            <div class="prof-pic mt-3">
+                                <img class="w-100" [src]="cdnUrl + 'promotions/' + promotions.image" *ngIf="!logoPreview">
+                                <div class="logo-wrapper" *ngIf="logoPreview">
+                                    <button class="btn btn-danger btn-sm d-flex align-center" (click)="resetImage()"><mat-icon>delete</mat-icon>Remove</button>
+                                    <img [src]="logoPreview" class="w-100 logo-img mt-3">
+                                </div>
+                                <!-- <button mat-raised-button class="w-100 mt-2">Change Image</button> -->
+                                <div class="custom-file mt-3">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="selectMultipleImage($event)" #logo>
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <button class="btn btn-success float-right m-3" (click)="submitDetails(promotionForm)">Submit</button>
             </div>
-        </div>
+        </form>
+        
     </div>
+</div>

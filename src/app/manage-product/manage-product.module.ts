@@ -9,6 +9,7 @@ import { EditBoxComponent } from './edit-box/edit-box.component';
 import { ProductFeaturesComponent } from './product-features/product-features.component';
 import { MainBoxComponent } from './main-box/main-box.component';
 import { PromotionComponent } from './promotion/promotion.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { PromotionComponent } from './promotion/promotion.component';
     ManageProductRoutingModule,
     CommonsModule,
     MaterialModule,
+    FormsModule
   ]
 })
 export class ManageProductModule { }

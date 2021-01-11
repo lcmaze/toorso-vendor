@@ -1,15 +1,18 @@
-<app-header></app-header>
-<app-head-title></app-head-title>
-<div style="background-color:#fafafa">
-    <div class="w-80">
-        <div class="row">
-            <div class="col-lg-3 p-3">
-                <app-navigation></app-navigation>
-            </div>
-            <div class="col-lg-9 p-3">
-                <router-outlet></router-outlet>
+<ng-container *ngIf="loginStatus">
+    <app-header></app-header>
+    <app-head-title></app-head-title>
+    <div style="background-color:#fafafa">
+        <div class="w-80">
+            <div class="row">
+                <div class="col-lg-3 p-3">
+                    <app-navigation></app-navigation>
+                </div>
+                <div class="col-lg-9 p-3">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</ng-container>
+<login *ngIf="!loginStatus"></login>

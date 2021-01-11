@@ -24,11 +24,11 @@
                             <div class="welcome">Logged in as
                                 <mat-icon>arrow_drop_down</mat-icon>
                             </div>
-                            <div class="username">Kanmadam Resort</div>
+                            <div class="username" *ngIf="userDetails">{{userDetails.email}}</div>
 
                             <mat-menu #login="matMenu" xPosition="after">
                                 <!-- <button style="width: 200px" mat-menu-item><mat-icon>account_circle</mat-icon> Profile</button> -->
-                                <button style="width: 200px" mat-menu-item><mat-icon>exit_to_app</mat-icon> Logout</button>
+                                <button style="width: 200px" mat-menu-item (click)="logout()"><mat-icon>exit_to_app</mat-icon> Logout</button>
                             </mat-menu>
                         </div>
                     </ng-container>

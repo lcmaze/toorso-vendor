@@ -7,7 +7,7 @@ import { ManageComponent } from './manage.component';
 const routes: Routes = [
   { path: '', component: ManageComponent },
   { path: 'add', component: AddnewComponent },
-  { path: 'paithalmala', component: AddnewComponent },
+  { path: ':id', component: AddnewComponent },
 ];
 
 @NgModule({

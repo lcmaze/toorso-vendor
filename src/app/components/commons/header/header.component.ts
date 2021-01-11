@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   @Input('country') country: boolean = true;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private mainData: MainService, private fAuth: AngularFireAuth) { }
 
   money : string[] =  ['₹ INR', '$ Dollar'];
   locations : any = [
@@ -24,7 +26,14 @@ export class HeaderComponent implements OnInit {
   selectedstate : string = this.locations[0].states[0];
   selectedflag: string = this.locations[0].flag;
 
+  userDetails: any;
   ngOnInit() {
+    this.userDetails = this.mainData.userDetails;
+  }
+
+  logout(){
+    this.fAuth.signOut();
+    window.location.reload();
   }
 
 
