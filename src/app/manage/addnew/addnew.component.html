@@ -4,12 +4,12 @@
     <button class="btn btn-success">Save</button> -->
 </div>
 
-<form #vendorForm="ngForm" *ngIf="!branch">
+<form #vendorForm="ngForm" *ngIf="!branch && vendor">
     <div class="row">
         <div class="col-md-6 p-2 px-md-3">
             <div>
                 <label>Head Company</label>
-                <input type="text" class="form-control" name="head_company" ngModel required>
+                <input type="text" class="form-control" name="head_company" [ngModel]="vendor.vendor_name" required>
             </div>
             <div>
                 <label>Branch Name</label>
@@ -56,7 +56,7 @@
                     <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="selectMultipleImage($event)" #logo>
                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                 </div>
-                <!-- <img [src]="cdnUrl + 'vendors/' + vendor.vendor_logo" class="logo-img mt-3" *ngIf="!logoPreview"> -->
+                <img [src]="cdnUrl + 'vendors/' + vendor.vendor_logo" class="logo-img mt-3" *ngIf="!logoPreview">
                 <div class="logo-wrapper" *ngIf="logoPreview">
                     <button class="btn btn-danger btn-sm d-flex align-center" (click)="resetImage()"><mat-icon>delete</mat-icon>Remove</button>
                     <img [src]="logoPreview" class="logo-img mt-3">
@@ -80,15 +80,15 @@
     
             <div>
                 <label><span class="material-icons mr-2">call</span>Phone</label>
-                <input type="text" class="form-control" name="vendor_phone" ngModel>
+                <input type="text" class="form-control" name="vendor_phone" [ngModel]="vendor.vendor_phone">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">email</span>Email</label>
-            <input type="text" class="form-control" name="vendor_email" ngModel>
+            <input type="text" class="form-control" name="vendor_email" [ngModel]="vendor.vendor_email">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">public</span>Website</label>
-                <input type="text" class="form-control" name="vendor_website" ngModel>
+                <input type="text" class="form-control" name="vendor_website" [ngModel]="vendor.vendor_website">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">home</span>Address - Line 1</label>
@@ -100,23 +100,24 @@
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">today</span>Working Days</label>
-                <input type="text" class="form-control" name="vendor_working_days" ngModel>
+                <input type="text" class="form-control" name="vendor_working_days" [ngModel]="vendor.vendor_working_days">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">access_time</span>Working Hours</label>
-                <input type="text" class="form-control" name="vendor_working_hours" ngModel>
+                <input type="text" class="form-control" name="vendor_working_hours" [ngModel]="vendor.vendor_working_hours">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">settings</span>Specialize Keywords</label>
                 <div class="d-flex mb-2">
-                    <input type="text" class="form-control mr-2" placeholder="" name="vendor_keywords" [(ngModel)]="vendorKeywords">
-                    <!-- <button class="btn btn-dark">Add</button> -->
+                    <!-- <input type="text" class="form-control mr-2" placeholder="" name="vendor_keywords" [(ngModel)]="vendorKeywords"> -->
+                    <input type="text" class="form-control mr-2" placeholder="Add Keywords" name="vendor_keywords_val" [(ngModel)]="vendorKeywordsVal">
+                    <button class="btn btn-dark" (click)="addArrayVal(1)">Add</button>
                 </div>
     
                 <mat-chip-list *ngIf="vendorKeywords">
-                    <mat-chip *ngFor="let k of vendorKeywords.split(',')">
-                        {{k}}
-                        <!-- <mat-icon matChipRemove>cancel</mat-icon> -->
+                    <mat-chip *ngFor="let r of vendorKeywords; let i = index">
+                        {{r}}
+                        <mat-icon matChipRemove (click)="removeArrayVal(1, i)">cancel</mat-icon>
                     </mat-chip>
                 </mat-chip-list>
             </div>
@@ -124,7 +125,7 @@
     
         <div class="col-md-12 p-2 px-md-3">
             <label>About Text</label>
-            <textarea type="text" class="form-control" rows="4" name="vendor_desc" ngModel></textarea>
+            <textarea type="text" class="form-control" rows="4" name="vendor_desc" [ngModel]="vendor.vendor_desc"></textarea>
         </div>
     
         <div class="col-md-6 p-2 px-md-3">
@@ -141,19 +142,19 @@
         <div class="col-md-6 p-2 px-md-3">
             <div class="mt-3">
                 <label><span class="material-icons mr-2">link</span>Facebook</label>
-                <input type="text" class="form-control" name="facebook" ngModel>
+                <input type="text" class="form-control" name="facebook" [ngModel]="vendor.facebook">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">link</span>Instagram</label>
-                <input type="text" class="form-control" name="instagram" ngModel>
+                <input type="text" class="form-control" name="instagram" [ngModel]="vendor.instagram">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">link</span>Twitter</label>
-                <input type="text" class="form-control" name="twitter" ngModel>
+                <input type="text" class="form-control" name="twitter" [ngModel]="vendor.twitter">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">link</span>Linkedin</label>
-                <input type="text" class="form-control" name="linkedin" ngModel>
+                <input type="text" class="form-control" name="linkedin" [ngModel]="vendor.linkedin">
             </div>
         </div>
     </div>
@@ -266,14 +267,15 @@
             <div class="mt-3">
                 <label><span class="material-icons mr-2">settings</span>Specialize Keywords</label>
                 <div class="d-flex mb-2">
-                    <input type="text" class="form-control mr-2" placeholder="" name="vendor_keywords" [(ngModel)]="branch.vendor_keywords">
-                    <!-- <button class="btn btn-dark">Add</button> -->
+                    <!-- <input type="text" class="form-control mr-2" placeholder="" name="vendor_keywords" [(ngModel)]="vendorKeywords"> -->
+                    <input type="text" class="form-control mr-2" placeholder="Add Keywords" name="vendor_keywords_val" [(ngModel)]="vendorKeywordsVal">
+                    <button class="btn btn-dark" (click)="addArrayVal(1)">Add</button>
                 </div>
     
-                <mat-chip-list *ngIf="branch.vendor_keywords">
-                    <mat-chip *ngFor="let k of branch.vendor_keywords.split(',')">
-                        {{k}}
-                        <!-- <mat-icon matChipRemove>cancel</mat-icon> -->
+                <mat-chip-list *ngIf="vendorKeywords">
+                    <mat-chip *ngFor="let r of vendorKeywords; let i = index">
+                        {{r}}
+                        <mat-icon matChipRemove (click)="removeArrayVal(1, i)">cancel</mat-icon>
                     </mat-chip>
                 </mat-chip-list>
             </div>

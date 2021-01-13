@@ -76,7 +76,7 @@ export class ProductFeaturesComponent implements OnInit {
   submitFacilities(form: NgForm){
     if(form.valid){
       this.facilities[0]['branch_id'] = this.mainData.selectedBranch;
-      console.log(this.facilities);
+      // console.log(this.facilities);
       this.mainData.post(this.facilities, 'api/vendor/update-branch-facility').subscribe(data => {
         if(data){
           this.mainData.openToast('Updated!');
@@ -91,7 +91,7 @@ export class ProductFeaturesComponent implements OnInit {
   submitTransportation(form: NgForm){
     if(form.valid){
       this.transportations[0]['branch_id'] = this.mainData.selectedBranch;
-      console.log(this.transportations);
+      // console.log(this.transportations);
       this.mainData.post(this.transportations, 'api/vendor/update-branch-transportation').subscribe(data => {
         if(data){
           this.mainData.openToast('Updated!');
@@ -106,7 +106,7 @@ export class ProductFeaturesComponent implements OnInit {
   submitFood(form: NgForm){
     if(form.valid){
       this.foods[0]['branch_id'] = this.mainData.selectedBranch;
-      console.log(this.foods);
+      // console.log(this.foods);
       this.mainData.post(this.foods, 'api/vendor/update-branch-food').subscribe(data => {
         if(data){
           this.mainData.openToast('Updated!');

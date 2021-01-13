@@ -12,6 +12,7 @@ export class MainBoxComponent implements OnInit {
   @Input('products') products: any = null;
   @Input('prices') prices: any = null;
   @Input('addons') addons: any = null;
+  @Input('id') id: any = null;
   @ViewChild('editBox') editBox: EditBoxComponent;
   @Output('add-new') addNewTable: any = new EventEmitter();
   @Output('delete') deleteTable: any = new EventEmitter();

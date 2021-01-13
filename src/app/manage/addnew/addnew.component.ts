@@ -24,7 +24,35 @@ export class AddnewComponent implements OnInit {
       if(this.id){
         this.getBranch();
       }
+      else{
+        this.getVendor();
+      }
       this.getCountry();
+    })
+  }
+  // manage array values (room number, amenities, features)
+  addArrayVal(id: any){
+    if(this.vendorKeywordsVal && id === 1){
+      this.vendorKeywords.push(this.vendorKeywordsVal);
+      this.vendorKeywordsVal = null;
+    }
+  }
+  removeArrayVal(id: any, index: any){
+    if(id === 1){
+      this.vendorKeywords.splice(index, 1);
+    }
+  }
+
+  vendor: any;
+  getVendor(){
+    this.mainData.get('api/vendor/get-vendor').subscribe(data => {
+      this.vendor = data[Object.keys(data)[0]];
+      // console.log(this.vendor);
+      if(this.vendor){
+        this.stateId = this.vendor.state_id;
+        this.getStates(this.countryId);
+        this.getCities(this.vendor.state_id);
+      }
     })
   }
 
@@ -33,7 +61,10 @@ export class AddnewComponent implements OnInit {
   getBranch(){
     this.mainData.get(`api/vendor/get-branch-full?id=${this.id}`).subscribe(data => {
       this.branch = data[Object.keys(data)[0]];
-      console.log(this.branch);
+      // console.log(this.branch);
+      if(this.branch){
+        if(this.branch.vendor_keywords) this.vendorKeywords = this.branch.vendor_keywords.split(',');
+      }
     })
   }
 
@@ -49,9 +80,10 @@ export class AddnewComponent implements OnInit {
     })
   }
 
-  vendor: any;
-  vendorKeywords: any;
-  countryId: any;
+  // vendor: any;
+  vendorKeywords: any = [];
+  vendorKeywordsVal: any;
+  countryId: any = 85;
   stateId: any;
   cityId: any;
 
@@ -77,7 +109,8 @@ export class AddnewComponent implements OnInit {
       if(!this.branch){
         await this.onMultipleSubmit().then(()=>{
           form.value['vendor_id'] = this.mainData.uid;
-          form.value['vendor_logo'] = this.branch.vendor_logo;
+          form.value['vendor_keywords'] = this.vendorKeywords.toString();
+          form.value['vendor_logo'] = this.vendor.vendor_logo;
           if(this.newsImageName) form.value['vendor_logo'] = this.newsImageName;
           this.mainData.post(form.value, `api/vendor/add-vendor-branch`).subscribe(data =>{
             if(data){
@@ -95,7 +128,9 @@ export class AddnewComponent implements OnInit {
         await this.onMultipleSubmit().then(()=>{
           form.value['vendor_id'] = this.mainData.uid;
           form.value['branch_id'] = this.branch.branch_id;
-          form.value['vendor_logo'] = this.newsImageName;
+          form.value['vendor_logo'] = this.branch.vendor_logo;
+          if(this.newsImageName) form.value['vendor_logo'] = this.newsImageName;
+          form.value['vendor_keywords'] = this.vendorKeywords.toString();
           this.mainData.post(form.value, `api/vendor/update-vendor-branch`).subscribe(data =>{
             if(data){
               this.mainData.openToast("Updated Details!");

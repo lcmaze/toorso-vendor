@@ -13,7 +13,8 @@
         <div class="row mt-3">
             <div class="col-md-6 px-4 pb-3" style="border-right: 1px solid #eaeaea">
                 <div class="d-flex">
-                    <label class="mr-2" style="white-space:nowrap;">Room Type 1</label>
+                    <label class="mr-2" style="white-space:nowrap;" *ngIf="id">Room Type {{id}}</label>
+                    <label class="mr-2" style="white-space:nowrap;" *ngIf="!id">Room Type 1</label>
                     <input type="text" class="form-control" name="room_type" [(ngModel)]="product.room_type" required>
                 </div>
     
@@ -59,37 +60,40 @@
     
                 <p class="mb-0 mt-4">Add Room numbers (seperate by comma)</p>
                 <div class="d-flex mt-1 mb-3">
-                    <input type="text" class="form-control mr-2" placeholder="Add Room Number" name="room_numbers" [(ngModel)]="product.room_numbers">
-                    <!-- <button class="btn btn-dark">Add</button> -->
+                    <input type="text" class="form-control mr-2" placeholder="Add Room Number" name="room_numbers_val" [(ngModel)]="roomNumberVal">
+                    <button class="btn btn-dark" (click)="addArrayVal(1)">Add</button>
                 </div>
     
-                <mat-chip-list *ngIf="product.room_numbers">
-                    <mat-chip *ngFor="let r of product.room_numbers.split(',')">
+                <mat-chip-list *ngIf="roomNumber">
+                    <mat-chip *ngFor="let r of roomNumber; let i = index">
                         {{r}}
+                        <mat-icon matChipRemove (click)="removeArrayVal(1, i)">cancel</mat-icon>
                     </mat-chip>
                 </mat-chip-list>
     
                 <p class="mb-0 mt-4">Add Room Amenities (seperate by comma)</p>
                 <div class="d-flex mt-1 mb-3">
-                    <input type="text" class="form-control mr-2" placeholder="Add Room Amenities" name="room_amenities" [(ngModel)]="product.room_amenities">
-                    <!-- <button class="btn btn-dark">Add</button> -->
+                    <input type="text" class="form-control mr-2" placeholder="Add Room Amenities" name="room_amenities_val" [(ngModel)]="roomAmenitiesVal">
+                    <button class="btn btn-dark" (click)="addArrayVal(2)">Add</button>
                 </div>
     
-                <mat-chip-list *ngIf="product.room_amenities">
-                    <mat-chip *ngFor="let r of product.room_amenities.split(',')">
+                <mat-chip-list *ngIf="roomAmenities">
+                    <mat-chip *ngFor="let r of roomAmenities; let i = index">
                         {{r}}
+                        <mat-icon matChipRemove (click)="removeArrayVal(2, i)">cancel</mat-icon>
                     </mat-chip>
                 </mat-chip-list>
     
                 <p class="mb-0 mt-4">Add Highlited Features (seperate by comma)</p>
                 <div class="d-flex mt-1 mb-3">
-                    <input type="text" class="form-control mr-2" placeholder="Add Highlited Features" name="highlited_features" [(ngModel)]="product.highlited_features">
-                    <!-- <button class="btn btn-dark">Add</button> -->
+                    <input type="text" class="form-control mr-2" placeholder="Add Highlited Features" name="highlited_features_val" [(ngModel)]="highlitedFeaturesVal">
+                    <button class="btn btn-dark" (click)="addArrayVal(3)">Add</button>
                 </div>
     
-                <mat-chip-list *ngIf="product.highlited_features">
-                    <mat-chip *ngFor="let h of product.highlited_features.split(',')">
-                        {{h}}
+                <mat-chip-list *ngIf="highlitedFeatures">
+                    <mat-chip *ngFor="let r of highlitedFeatures; let i = index">
+                        {{r}}
+                        <mat-icon matChipRemove (click)="removeArrayVal(3, i)">cancel</mat-icon>
                     </mat-chip>
                 </mat-chip-list>
             </div>

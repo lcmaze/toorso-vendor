@@ -12,8 +12,8 @@
 <div class="row" *ngIf="showMainBox">
     <div class="col-12 px-2 px-md-3 pt-3">
         <ng-container *ngFor="let p of products; let i = index">
-            <app-main-box *ngIf="p" (add-new)="products.push(null)" (delete)="deleteTable(i)" [editable]="true" [products]="p" [prices]="p.prices" [addons]="p.addons"></app-main-box>
-            <app-main-box *ngIf="!p" (add-new)="products.push(null)" (delete)="deleteTable(i)" [editable]="true" [products]="null" [prices]="null" [addons]="null"></app-main-box>
+            <app-main-box *ngIf="p" [id]="i+1" (add-new)="products.push(null)" (delete)="deleteTable(i)" [editable]="true" [products]="p" [prices]="p.prices" [addons]="p.addons"></app-main-box>
+            <app-main-box *ngIf="!p" [id]="i+1" (add-new)="products.push(null)" (delete)="deleteTable(i)" [editable]="true" [products]="null" [prices]="null" [addons]="null"></app-main-box>
         </ng-container>
         <app-main-box *ngIf="products && products.length === 0" (add-new)="products.push(null)" (delete)="deleteTable(i)" [editable]="true" [products]="null" [prices]="null" [addons]="null"></app-main-box>
     </div>
