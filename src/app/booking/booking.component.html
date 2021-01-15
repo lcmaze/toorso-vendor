@@ -21,102 +21,68 @@
     </div>
 </div>
 
-<div class="mt-3 table-style">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td colspan="2">Total Rooms : <b>20</b></td>
-                <td>
-                    <div (click)="picker2.open()">
-                        <input class="form-control" [matDatepicker]="picker2" placeholder="Start Date">
-                        <mat-datepicker #picker2></mat-datepicker>
+<section>
+    <div class="row my-3">
+        <div class="col-md-8 col-xl-9">
+            <div class="sect mb-3">
+                <div class="set-left">
+                    <div class="slno">
+                        <h6 class="mb-0"><span>Sl No.</span><br>10</h6>
                     </div>
-                </td>
-                <td>
-                    <div (click)="picker4.open()">
-                        <input class="form-control" [matDatepicker]="picker4" placeholder="End Date">
-                        <mat-datepicker #picker4></mat-datepicker>
+                    <div class="room">
+                        <h6 class="mb-0"><span>Room</span><br>1005 C</h6>
                     </div>
-                </td>
-                <th>
-                    <div class="d-flex align-items-center">
-                        <div class="mr-3">Block All</div>
+                </div>
+                <div class="set-right">
+                    <div class="row mx-0">
+                        <div class="col-6 px-0">
+                            <div class="type px-3">
+                                <h6 class="mb-0"><span>Type : </span>Regular Room</h6>
+                            </div>
+                            <div class="bottm px-3 d-flex align-items-center justify-content-between">
+                                <mat-slide-toggle></mat-slide-toggle>
+                                <div class="ml-3">
+                                    <div class="form-control" (click)="picker22.open()">
+                                        <mat-date-range-input [rangePicker]="picker22">
+                                            <input matStartDate placeholder="From" readonly style="cursor: pointer;">
+                                            <input matEndDate placeholder="To" readonly style="cursor: pointer;">
+                                        </mat-date-range-input>
+                                    </div>
+                                    <mat-date-range-picker #picker22></mat-date-range-picker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 px-0">
+                            <div class="availablity px-3">
+                                <h6 class="mb-0"><span>Availablity : </span>Available</h6>
+                            </div>
+                            <div class="guest px-3">
+                                <h6 class="mb-0"><span>Guest : </span>John Henderson</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xl-3">
+            <div class="set-box">
+                <div class="set1 p-2">
+                    <h6 class="mb-0">Total Rooms : <b>20</b></h6>
+                </div>
+                <div class="set2 p-2">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6>Block all Rooms</h6>
                         <mat-slide-toggle></mat-slide-toggle>
                     </div>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Room No.</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Block Rooms Manually</th>
-                <th scope="col">Room Type</th>
-                <th scope="col">Status</th>
-                <th scope="col">Guest</th>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>201</td>
-                <td>
-                    <div (click)="picker3.open()">
-                        <input class="form-control" [matDatepicker]="picker3" placeholder="Start Date">
-                        <mat-datepicker #picker3></mat-datepicker>
+                    <div class="form-control" (click)="picker.open()">
+                        <mat-date-range-input [rangePicker]="picker">
+                            <input matStartDate placeholder="From" readonly style="cursor: pointer;">
+                            <input matEndDate placeholder="To" readonly style="cursor: pointer;">
+                        </mat-date-range-input>
                     </div>
-                </td>
-                <td>
-                    <div (click)="picker5.open()">
-                        <input class="form-control" [matDatepicker]="picker5" placeholder="End Date">
-                        <mat-datepicker #picker5></mat-datepicker>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <mat-slide-toggle></mat-slide-toggle>
-                    </div>
-                </td>
-                <td>
-                    Regular
-                </td>
-                <td class="bg-primary text-white">
-                    Booked
-                </td>
-                <td>
-                    John Anderson
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>201</td>
-                <td>
-                    <div (click)="picker3.open()">
-                        <input class="form-control" [matDatepicker]="picker3" placeholder="Start Date">
-                        <mat-datepicker #picker3></mat-datepicker>
-                    </div>
-                </td>
-                <td>
-                    <div (click)="picker5.open()">
-                        <input class="form-control" [matDatepicker]="picker5" placeholder="End Date">
-                        <mat-datepicker #picker5></mat-datepicker>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <mat-slide-toggle></mat-slide-toggle>
-                    </div>
-                </td>
-                <td>
-                    Regular
-                </td>
-                <td class="bg-primary text-white">
-                    Booked
-                </td>
-                <td>
-                    John Anderson
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

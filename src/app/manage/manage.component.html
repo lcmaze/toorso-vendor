@@ -17,16 +17,13 @@
             </div>
             <div class="mt-3">
                 <label>Country</label>
-                <select class="custom-select" id="inputGroupSelect02" 
-                name="country_id" [(ngModel)]="vendor.country_id"
-                (change)="getStates(vendor.country_id)">
+                <select class="custom-select" id="inputGroupSelect02" name="country_id" [(ngModel)]="vendor.country_id" (change)="getStates(vendor.country_id)">
                 <option [value]="c.country_id" *ngFor="let c of countries">{{c.country_name}}</option>
               </select>
             </div>
             <div class="mt-3">
                 <label>State</label>
-                <select class="custom-select" id="inputGroupSelect02" name="state_id" [(ngModel)]="vendor.state_id"
-                (change)="getCities(vendor.state_id)">
+                <select class="custom-select" id="inputGroupSelect02" name="state_id" [(ngModel)]="vendor.state_id" (change)="getCities(vendor.state_id)">
                 <option [value]="s.state_id" *ngFor="let s of states">{{s.state_name}}</option>
               </select>
             </div>
@@ -71,16 +68,16 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 p-2 px-md-3">
-    
+
             <div>
                 <label><span class="material-icons mr-2">call</span>Phone</label>
                 <input type="text" class="form-control" name="vendor_phone" [(ngModel)]="vendor.vendor_phone">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">email</span>Email</label>
-            <input type="text" class="form-control" name="vendor_email" [(ngModel)]="vendor.vendor_email">
+                <input type="text" class="form-control" name="vendor_email" [(ngModel)]="vendor.vendor_email">
             </div>
             <div class="mt-3">
                 <label><span class="material-icons mr-2">public</span>Website</label>
@@ -108,7 +105,7 @@
                     <input type="text" class="form-control mr-2" placeholder="" name="vendor_keywords" [(ngModel)]="vendor.vendor_keywords">
                     <!-- <button class="btn btn-dark">Add</button> -->
                 </div>
-    
+
                 <mat-chip-list *ngIf="vendor.vendor_keywords">
                     <mat-chip *ngFor="let k of vendor.vendor_keywords.split(',')">
                         {{k}}
@@ -117,12 +114,12 @@
                 </mat-chip-list>
             </div>
         </div>
-    
+
         <div class="col-md-12 p-2 px-md-3">
             <label>About Text</label>
             <textarea type="text" class="form-control" rows="4" name="vendor_desc" [(ngModel)]="vendor.vendor_desc"></textarea>
         </div>
-    
+
         <div class="col-md-6 p-2 px-md-3">
             <div class="mt-3">
                 <label><span class="material-icons mr-2">flight</span>Near Airport</label>
@@ -133,7 +130,7 @@
                 <input type="text" class="form-control" name="near_railway" [(ngModel)]="vendor.near_railway">
             </div>
         </div>
-    
+
         <div class="col-md-6 p-2 px-md-3">
             <div class="mt-3">
                 <label><span class="material-icons mr-2">link</span>Facebook</label>
