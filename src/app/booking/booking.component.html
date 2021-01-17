@@ -21,68 +21,86 @@
     </div>
 </div>
 
-<section>
-    <div class="row my-3">
-        <div class="col-md-8 col-xl-9">
-            <div class="sect mb-3">
-                <div class="set-left">
-                    <div class="slno">
-                        <h6 class="mb-0"><span>Sl No.</span><br>10</h6>
-                    </div>
-                    <div class="room">
-                        <h6 class="mb-0"><span>Room</span><br>1005 C</h6>
-                    </div>
+<section class="sect mt-2">
+    <!-- head -->
+    <div class="tabl">
+        <div class="head" style="min-width: 65px;">
+            <h6 class="mb-0">No.</h6>
+        </div>
+        <div class="head" style="min-width: 200px;">
+            <h6 class="mb-0">Type</h6>
+        </div>
+        <div class="head2 px-3" style="min-width: 240px;">
+            <mat-slide-toggle></mat-slide-toggle>
+            <div class="ml-3">
+                <div class="form-control" (click)="picker22.open()">
+                    <mat-date-range-input [rangePicker]="picker22">
+                        <input matStartDate placeholder="From" readonly style="cursor: pointer;">
+                        <input matEndDate placeholder="To" readonly style="cursor: pointer;">
+                    </mat-date-range-input>
                 </div>
-                <div class="set-right">
-                    <div class="row mx-0">
-                        <div class="col-6 px-0">
-                            <div class="type px-3">
-                                <h6 class="mb-0"><span>Type : </span>Regular Room</h6>
-                            </div>
-                            <div class="bottm px-3 d-flex align-items-center justify-content-between">
-                                <mat-slide-toggle></mat-slide-toggle>
-                                <div class="ml-3">
-                                    <div class="form-control" (click)="picker22.open()">
-                                        <mat-date-range-input [rangePicker]="picker22">
-                                            <input matStartDate placeholder="From" readonly style="cursor: pointer;">
-                                            <input matEndDate placeholder="To" readonly style="cursor: pointer;">
-                                        </mat-date-range-input>
-                                    </div>
-                                    <mat-date-range-picker #picker22></mat-date-range-picker>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 px-0">
-                            <div class="availablity px-3">
-                                <h6 class="mb-0"><span>Availablity : </span>Available</h6>
-                            </div>
-                            <div class="guest px-3">
-                                <h6 class="mb-0"><span>Guest : </span>John Henderson</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <mat-date-range-picker #picker22></mat-date-range-picker>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
-            <div class="set-box">
-                <div class="set1 p-2">
-                    <h6 class="mb-0">Total Rooms : <b>20</b></h6>
+        <div class="head" style="min-width: 200px;">
+            <h6 class="mb-0">Status</h6>
+        </div>
+        <div class="head" style="min-width: 200px;">
+            <h6 class="mb-0">Guest</h6>
+        </div>
+    </div>
+    <!-- head close -->
+
+    <div class="tabl">
+        <div class="roo">
+            <h6 class="mb-0">1005 C</h6>
+        </div>
+        <div class="typ">
+            <h6 class="mb-0">Regular Room</h6>
+        </div>
+        <div class="stat px-3">
+            <mat-slide-toggle></mat-slide-toggle>
+            <div class="ml-3">
+                <div class="form-control" (click)="picker22.open()">
+                    <mat-date-range-input [rangePicker]="picker22">
+                        <input matStartDate placeholder="From" readonly style="cursor: pointer;">
+                        <input matEndDate placeholder="To" readonly style="cursor: pointer;">
+                    </mat-date-range-input>
                 </div>
-                <div class="set2 p-2">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h6>Block all Rooms</h6>
-                        <mat-slide-toggle></mat-slide-toggle>
-                    </div>
-                    <div class="form-control" (click)="picker.open()">
-                        <mat-date-range-input [rangePicker]="picker">
-                            <input matStartDate placeholder="From" readonly style="cursor: pointer;">
-                            <input matEndDate placeholder="To" readonly style="cursor: pointer;">
-                        </mat-date-range-input>
-                    </div>
-                    <mat-date-range-picker #picker></mat-date-range-picker>
-                </div>
+                <mat-date-range-picker #picker22></mat-date-range-picker>
             </div>
+        </div>
+        <div class="availablit">
+            <h6 class="mb-0">Available</h6>
+        </div>
+        <div class="gues">
+            <h6 class="mb-0">John Henderson</h6>
+        </div>
+    </div>
+    <div class="tabl">
+        <div class="roo">
+            <h6 class="mb-0">1005 C</h6>
+        </div>
+        <div class="typ">
+            <h6 class="mb-0">Regular Room</h6>
+        </div>
+        <div class="stat px-3">
+            <mat-slide-toggle></mat-slide-toggle>
+            <div class="ml-3">
+                <div class="form-control" (click)="picker22.open()">
+                    <mat-date-range-input [rangePicker]="picker22">
+                        <input matStartDate placeholder="From" readonly style="cursor: pointer;">
+                        <input matEndDate placeholder="To" readonly style="cursor: pointer;">
+                    </mat-date-range-input>
+                </div>
+                <mat-date-range-picker #picker22></mat-date-range-picker>
+            </div>
+        </div>
+        <div class="availablit">
+            <h6 class="mb-0">Available</h6>
+        </div>
+        <div class="gues">
+            <h6 class="mb-0">John Henderson</h6>
         </div>
     </div>
 </section>
