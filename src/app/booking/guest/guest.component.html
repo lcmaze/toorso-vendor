@@ -9,23 +9,17 @@
           <option value="3">Three</option>
         </select>
     </div>
-    <div class="col-md-6 p-2 px-md-3">
-        <label>Choose Date</label>
-        <div class="row">
-            <div class="col-6">
-                <div (click)="picker1.open()">
-                    <input class="form-control" [matDatepicker]="picker1" placeholder="Start Date">
-                    <mat-datepicker #picker1></mat-datepicker>
+    <div class="col-md-6 p-2 px-md-3 d-flex justify-content-md-end">
+        <div>
+            <label>Choose Date</label>
+            <div style="max-width: 220px;">
+                <div class="form-control" (click)="picker22.open()">
+                    <mat-date-range-input [rangePicker]="picker22">
+                        <input matStartDate placeholder="From" readonly style="cursor: pointer;">
+                        <input matEndDate placeholder="To" readonly style="cursor: pointer;">
+                    </mat-date-range-input>
                 </div>
-            </div>
-            <div class="col-6">
-                <div (click)="picker2.open()">
-                    <input class="form-control" [matDatepicker]="picker2" placeholder="End Date">
-                    <mat-datepicker #picker2></mat-datepicker>
-                </div>
-            </div>
-            <div class="col-6 pt-3">
-                <button mat-flat-button color="warn">Export Data</button>
+                <mat-date-range-picker #picker22></mat-date-range-picker>
             </div>
         </div>
     </div>
@@ -48,22 +42,22 @@
                 <div class="head" style="min-width: 200px;">
                     <h6 class="mb-0">Guest Details</h6>
                 </div>
-                <div class="head" style="min-width: 120px;">
+                <div class="head" style="min-width: 100px;">
                     <h6 class="mb-0">Nos</h6>
                 </div>
-                <div class="head" style="min-width: 120px;">
+                <div class="head" style="min-width: 110px;">
                     <h6 class="mb-0">Check In</h6>
                 </div>
-                <div class="head" style="min-width: 120px;">
+                <div class="head" style="min-width: 110px;">
                     <h6 class="mb-0">Check Out</h6>
                 </div>
-                <div class="head" style="min-width: 120px;">
+                <div class="head" style="min-width: 80px;">
                     <h6 class="mb-0">Days</h6>
                 </div>
                 <div class="head" style="min-width: 120px;">
                     <h6 class="mb-0">Rooms</h6>
                 </div>
-                <div class="head" style="min-width: 120px;">
+                <div class="head" style="min-width: 80px;">
                     <h6 class="mb-0">Room Qty</h6>
                 </div>
                 <div class="head" style="min-width: 120px;">
@@ -82,25 +76,25 @@
                 <div class="nam">
                     <h6 class="px-3 py-2 mb-0"><b>John Henderson</b><br>Palarivatton, Kochi <br> +91 9488709451</h6>
                 </div>
-                <div class="detail" style="min-width: 120px;">
+                <div class="detail" style="min-width: 100px;">
                     <div class="px-3 py-2">
                         <h6 class="mb-0">2 <span>Adults</span></h6>
                         <h6 class="mb-0">2 <span>Children</span></h6>
                     </div>
                 </div>
-                <div class="detail" style="min-width: 120px;">
+                <div class="detail" style="min-width: 110px;">
                     <h6 class="px-3 py-2 mb-0">20-09-2020</h6>
                 </div>
-                <div class="detail" style="min-width: 120px;">
+                <div class="detail" style="min-width: 110px;">
                     <h6 class="px-3 py-2 mb-0">20-09-2020</h6>
                 </div>
-                <div class="detail" style="min-width: 120px;">
+                <div class="detail" style="min-width: 80px;">
                     <h6 class="px-3 py-2 mb-0">1 <span>Day</span></h6>
                 </div>
                 <div class="detail" style="min-width: 120px;">
                     <h6 class="px-3 py-2 mb-0">Deluxe Room</h6>
                 </div>
-                <div class="detail" style="min-width: 120px;">
+                <div class="detail" style="min-width: 80px;">
                     <h6 class="px-3 py-2 mb-0">1</h6>
                 </div>
                 <div class="detail" style="min-width: 120px;">
@@ -108,8 +102,45 @@
                         <h6 class="mb-0">A/C Added</h6>
                     </div>
                 </div>
-                <div class="detail" style="min-width: 120px;">
+                <div class="detail text-success" style="min-width: 120px;">
                     <h6 class="px-3 py-2 mb-0">Confirmed</h6>
+                </div>
+            </div>
+            <div class="tabl">
+                <div class="roo">
+                    <h6 class="mb-0">2</h6>
+                </div>
+                <div class="nam">
+                    <h6 class="px-3 py-2 mb-0"><b>John Henderson</b><br>Palarivatton, Kochi <br> +91 9488709451</h6>
+                </div>
+                <div class="detail" style="min-width: 100px;">
+                    <div class="px-3 py-2">
+                        <h6 class="mb-0">2 <span>Adults</span></h6>
+                        <h6 class="mb-0">2 <span>Children</span></h6>
+                    </div>
+                </div>
+                <div class="detail" style="min-width: 110px;">
+                    <h6 class="px-3 py-2 mb-0">20-09-2020</h6>
+                </div>
+                <div class="detail" style="min-width: 110px;">
+                    <h6 class="px-3 py-2 mb-0">20-09-2020</h6>
+                </div>
+                <div class="detail" style="min-width: 80px;">
+                    <h6 class="px-3 py-2 mb-0">1 <span>Day</span></h6>
+                </div>
+                <div class="detail" style="min-width: 120px;">
+                    <h6 class="px-3 py-2 mb-0">Deluxe Room</h6>
+                </div>
+                <div class="detail" style="min-width: 80px;">
+                    <h6 class="px-3 py-2 mb-0">1</h6>
+                </div>
+                <div class="detail" style="min-width: 120px;">
+                    <div class="px-3 py-2">
+                        <h6 class="mb-0">A/C Added</h6>
+                    </div>
+                </div>
+                <div class="detail text-danger" style="min-width: 120px;">
+                    <h6 class="px-3 py-2 mb-0">Cancelled</h6>
                 </div>
             </div>
         </section>

@@ -37,13 +37,6 @@ label {
                 font-size: 12px;
             }
         }
-        .head2 {
-            display: flex;
-            align-items: center;
-            min-width: 240px;
-            background-color: #0274b9;
-            border-right: 1px solid #eaeaea;
-        }
         .roo {
             min-width: 65px;
             height: 50px;
@@ -81,6 +74,7 @@ label {
             align-items: center;
             min-width: 240px;
             background-color: #eaeaea;
+            border-top: 1px solid #fff;
         }
         .availablit {
             min-width: 200px;
@@ -111,6 +105,22 @@ label {
                 font-size: 13px;
             }
         }
+    }
+}
+
+.blocks {
+    box-shadow: 0 4px 4px 0 #00000020;
+    background-color: #fff;
+    h6 {
+        font-size: 14px;
+        font-family: 'Open Sans SB';
+        color: #3d3d3d;
+        span {
+            color: #7e7e7e;
+        }
+    }
+    .blockall {
+        max-width: 280px;
     }
 }
 
