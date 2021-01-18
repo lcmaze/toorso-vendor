@@ -57,10 +57,10 @@
         <div class="head" style="min-width: 200px;">
             <h6 class="mb-0">Type</h6>
         </div>
-        <div class="head px-3" style="min-width: 240px;">
+        <div class="head px-3" style="min-width: 310px;">
             <h6 class="mb-0">Block Rooms</h6>
         </div>
-        <div class="head" style="min-width: 200px;">
+        <div class="head" style="min-width: 200px;flex-grow: 1;">
             <h6 class="mb-0">Status</h6>
         </div>
         <div class="head" style="min-width: 200px;">
@@ -79,13 +79,13 @@
         <div class="stat px-3">
             <mat-slide-toggle></mat-slide-toggle>
             <div class="ml-3">
-                <div class="form-control" (click)="picker22.open()">
-                    <mat-date-range-input [rangePicker]="picker22">
+                <div class="form-control" (click)="picker23.open()">
+                    <mat-date-range-input [rangePicker]="picker23">
                         <input matStartDate placeholder="From" readonly style="cursor: pointer;">
                         <input matEndDate placeholder="To" readonly style="cursor: pointer;">
                     </mat-date-range-input>
                 </div>
-                <mat-date-range-picker #picker22></mat-date-range-picker>
+                <mat-date-range-picker #picker23></mat-date-range-picker>
             </div>
         </div>
         <div class="availablit bg-success">

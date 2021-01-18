@@ -72,12 +72,14 @@ label {
         .stat {
             display: flex;
             align-items: center;
-            min-width: 240px;
+            min-width: 310px;
+            max-width: 310px;
             background-color: #eaeaea;
             border-top: 1px solid #fff;
         }
         .availablit {
             min-width: 200px;
+            flex-grow: 1;
             height: 50px;
             background-color: #fff;
             color: #3d3d3d;
