@@ -15,7 +15,7 @@
                     <button class="btn btn-outline-secondary" (click)="submitDetails()" type="button">Upload</button>
                 </div>
             </div>
-            <input #fileInput type="file" style="display:none" multiple  (change)="selectMultipleImage($event)" #logo>
+            <input #fileInput type="file" style="display:none" multiple (change)="selectMultipleImage($event)" #logo>
         </div>
     </div>
 
@@ -30,14 +30,11 @@
             <div class="col-6 col-md-3 col-xl-2 py-2" *ngFor="let i of images">
                 <div class="image">
                     <img class="w-100" [src]="cdnUrl + 'gallery/' + i.filename">
-                    <div class="row mx-0">
-                        <div class="col-md-8 px-0">
-                            <button mat-button color="warn" class="w-100" (click)="delete(i)">Remove</button>
-                        </div>
-                        <div class="col-md-4 px-0 d-flex align-items-center justify-content-center">
-                            <mat-slide-toggle (change)="changeStatus($event, i)" [checked]="i.is_active === 1 ? true : false"></mat-slide-toggle>
-                        </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <label class="my-1 mx-2">Status</label>
+                        <mat-slide-toggle (change)="changeStatus($event, i)" [checked]="i.is_active === 1 ? true : false"></mat-slide-toggle>
                     </div>
+                    <div class="close-btn" (click)="delete(i)"><span class="material-icons">cancel</span></div>
                 </div>
             </div>
             <div class="col-6 col-md-3 col-xl-2 py-2" *ngFor="let p of previewImages">
