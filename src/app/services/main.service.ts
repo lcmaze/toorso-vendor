@@ -34,6 +34,14 @@ export class MainService {
     });
   }
 
+  delete(link: string){
+    return this.http.delete(environment.apiUrl + link, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
   get(link: string){
     return this.http.get(environment.apiUrl + link);
   }

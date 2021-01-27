@@ -24,7 +24,7 @@ export class PromotionComponent implements OnInit {
   promotions: any;
   getPromotion(){
     this.mainData.get(`api/vendor/get-promotion`).subscribe(data => {
-      this.promotions = data[Object.keys(data)[0]];
+      this.promotions = data['rows'][Object.keys(data['rows'])[0]];
       // console.log(this.promotions);
       if(!this.promotions) this.promotions = { promotion_text: null, banner_color: '#c62828', product_id:  0, vendor_id: null, discount: null, image: 'no-image.png', start_date: null, end_date: null };
     })
@@ -33,7 +33,7 @@ export class PromotionComponent implements OnInit {
   products: any;
   getProducts(){
     this.mainData.get(`api/vendor/get-all-products`).subscribe(data => {
-      this.products = data;
+      this.products = data['rows'];
       // console.log(this.promotions);
     })
   }

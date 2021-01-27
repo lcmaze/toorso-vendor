@@ -25,9 +25,10 @@ export class UploadComponent implements OnInit {
   selectedBranchDetails: any;
   getBranches(){
     this.mainData.get(`api/vendor/get-branches`).subscribe(data => {
-      this.branches = data;
-      this.selectedBranch = data[Object.keys(data)[0]].branch_id;
-      this.selectedBranchDetails = data[Object.keys(data)[0]];
+      let branch = data['rows'][Object.keys(data['rows'])[0]];
+      this.branches = data['rows'];
+      this.selectedBranch = branch.branch_id;
+      this.selectedBranchDetails = branch;
       this.mainData.selectedBranch = this.selectedBranch;
       this.getImages();
       this.setUrl(false);
@@ -75,7 +76,7 @@ export class UploadComponent implements OnInit {
   images: any;
   getImages(){
     this.mainData.get(`api/vendor/get-images?branch_id=${this.selectedBranch}`).subscribe(data => {
-      this.images = data;
+      this.images = data['rows'];
     })
   }
 
@@ -106,7 +107,7 @@ export class UploadComponent implements OnInit {
   imageToUpload: any = [];
   @ViewChild('logo') vendorLogo: ElementRef;
   selectMultipleImage(event){
-    this.previewImages = [];
+    this.resetImage();
     if (event.target.files.length > 0) {
       this.multipleImages = event.target.files;
     }
@@ -121,6 +122,7 @@ export class UploadComponent implements OnInit {
   resetImage(){
     this.vendorLogo.nativeElement.value = "";
     this.previewImages = [];
+    this.multipleImages = [];
   }
 
   async onMultipleSubmit(){
@@ -139,6 +141,7 @@ export class UploadComponent implements OnInit {
         this.http.post<any>(environment.apiUrl + 'api/vendor/upload-branch-images', formData).subscribe(
           (res) => {
             console.log('uploaded');
+            this.resetImage();
             resolve(true);
           },
           (err) => {
@@ -159,7 +162,7 @@ export class UploadComponent implements OnInit {
   delete(img: any){
     let r = confirm("Are you sure to delete the image?");
     if(r){
-      this.mainData.post({id: img.image_id}, 'api/vendor/delete-image').subscribe(data => {
+      this.mainData.delete(`api/vendor/delete-image?image_id=${img.image_id}`).subscribe(data => {
         if(data) {
           this.mainData.openToast('Deleted Successfully!');
           this.getImages();
