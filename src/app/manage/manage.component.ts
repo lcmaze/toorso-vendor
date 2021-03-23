@@ -54,6 +54,12 @@ export class ManageComponent implements OnInit {
     })
   }
 
+  updateWaiting(){
+    if(this.vendor){
+
+    }
+  }
+
   // update vendor details
   async updateVendor(form: NgForm){
     if(form.valid){

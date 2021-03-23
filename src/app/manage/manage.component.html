@@ -5,6 +5,7 @@
 </div>
 <!-- details -->
 <form #vendorForm="ngForm">
+    <h5 *ngIf="vendor && vendor.membership.waiting_approval" class="waiting">Waiting for approval!</h5>
     <div class="row" *ngIf="vendor">
         <div class="col-md-6 p-2 px-md-3">
             <div>
@@ -154,6 +155,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end mt-2">
+        <!-- <button type="button" class="btn btn-primary mr-2" (click)="updateWaiting()">Send Approval Request</button> -->
         <button class="btn btn-success" (click)="updateVendor(vendorForm)">Save</button>
     </div>
 </form>

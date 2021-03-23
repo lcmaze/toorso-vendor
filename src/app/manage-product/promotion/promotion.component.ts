@@ -26,7 +26,7 @@ export class PromotionComponent implements OnInit {
     this.mainData.get(`api/vendor/get-promotion`).subscribe(data => {
       this.promotions = data['rows'][Object.keys(data['rows'])[0]];
       // console.log(this.promotions);
-      if(!this.promotions) this.promotions = { promotion_text: null, banner_color: '#c62828', product_id:  0, vendor_id: null, discount: null, image: 'no-image.png', start_date: null, end_date: null };
+      // if(!this.promotions) this.promotions = { promotion_text: null, banner_color: '#c62828', product_id:  0, vendor_id: null, discount: null, image: 'no-image.png', start_date: null, end_date: null };
     })
   }
 
