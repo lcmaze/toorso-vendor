@@ -13,14 +13,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private fAuth: AngularFireAuth, private mainData: MainService) { }
 
-  showLogin: boolean = true;
+  showLogin: number = 1;
 
   ngOnInit(): void {
     this.getCountry();
   }
 
   async login(form: NgForm){
-    if(form.valid && this.showLogin === true){
+    if(form.valid && this.showLogin === 1){
       this.fAuth.signInWithEmailAndPassword(form.value.email, form.value.password).then(user => {
         if(user){
           this.mainData.uid = user.user.uid;
@@ -31,17 +31,24 @@ export class LoginComponent implements OnInit {
         this.mainData.openToast(err.message);
       })
     }
-    else if(form.valid && this.showLogin === false){
+    else if(form.valid && this.showLogin === 2){
       // console.log(form.value); 
       this.mainData.post(form.value, `api/vendor/register-vendor`).subscribe(data => {
         if(data === true){
           this.mainData.openToast("Registered Successfully!");
-          this.showLogin = true;
+          this.showLogin = 1;
         }
         else{
           this.mainData.openToast(data['message']);
         }
       });
+    }
+    else{
+      this.fAuth.sendPasswordResetEmail(form.value.email).then(data => {
+        this.mainData.openToast("Reset Email Send!");
+      }).catch(err => {
+        this.mainData.openToast(err.message);
+      })
     }
   }
 

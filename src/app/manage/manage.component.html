@@ -5,7 +5,7 @@
 </div>
 <!-- details -->
 <form #vendorForm="ngForm">
-    <h5 *ngIf="vendor && vendor.membership.waiting_approval" class="waiting">Waiting for approval!</h5>
+    <h5 *ngIf="vendor && vendor.membership.waiting_approval" class="waiting">Waiting for approval! This will expire in 30 Days</h5>
     <div class="row" *ngIf="vendor">
         <div class="col-md-6 p-2 px-md-3">
             <div>
