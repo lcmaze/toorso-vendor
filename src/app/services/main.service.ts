@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -18,8 +18,13 @@ export class MainService {
   states: any;
   countries: any;
   selectedBranch: any;
+  selectedVendor: any;
 
   clientId: any;
+
+  selectedCountry: any = new Subject<any>();
+  selectedState: any = new Subject<any>();
+  selectedDistrict: any = new Subject<any>();
 
   filterLink: any;
   changeFilter(link: any){

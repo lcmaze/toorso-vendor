@@ -10,6 +10,7 @@ import { HeadTitleComponent } from './head-title/head-title.component';
 import { InPageHeadComponent } from './in-page-head/in-page-head.component';
 import { DateRangeComponent } from './date-range/date-range.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
     InPageHeadComponent,
     DateRangeComponent,
     LoginComponent,
+    RegisterDialogComponent,
   ],
   imports: [
     CommonModule,

@@ -38,17 +38,17 @@
                 <div class="location pb-3 pb-md-4">
                     <!-- <mat-icon>place</mat-icon> -->
                     <img class="flag" [src]="'assets/images/'+selectedflag" alt="">
-                    <button mat-button [matMenuTriggerFor]="country">{{selectedcountry}} <mat-icon>arrow_drop_down</mat-icon></button>
+                    <button mat-button [matMenuTriggerFor]="country" *ngIf="selectedcountry">{{selectedcountry.country_name}} <mat-icon>arrow_drop_down</mat-icon></button>
                     <mat-menu #country="matMenu">
-                        <ng-container *ngFor="let item of locations">
-                            <button mat-menu-item (click)="countryselect(item.name, item.branch, item.states, item.flag)">{{item.name}}</button>
+                        <ng-container *ngFor="let item of countries">
+                            <button mat-menu-item (click)="selectCountry(item)">{{item.country_name}}</button>
                         </ng-container>
                     </mat-menu>
 
-                    <button mat-button [matMenuTriggerFor]="state" *ngIf="branchvisible">{{selectedstate}} <mat-icon>arrow_drop_down</mat-icon></button>
+                    <button mat-button [matMenuTriggerFor]="state" *ngIf="branchvisible && selectedstate">{{selectedstate.state_name}} <mat-icon>arrow_drop_down</mat-icon></button>
                     <mat-menu #state="matMenu">
-                        <ng-container *ngFor="let item of statelist">
-                            <button mat-menu-item (click)="stateselect(item)">{{item}}</button>
+                        <ng-container *ngFor="let item of states">
+                            <button mat-menu-item (click)="stateselect(item)">{{item.state_name}}</button>
                         </ng-container>
                     </mat-menu>
                 </div>

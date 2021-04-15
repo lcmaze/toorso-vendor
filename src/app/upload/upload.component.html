@@ -1,4 +1,4 @@
-<app-in-page-head></app-in-page-head>
+<app-in-page-head name="Upload"></app-in-page-head>
 
 <div class="row">
     <div class="col-md-6 p-2 px-md-3">
@@ -32,7 +32,7 @@
                     <img class="w-100" [src]="cdnUrl + 'gallery/' + i.filename">
                     <div class="d-flex align-items-center justify-content-center">
                         <label class="my-1 mx-2">Status</label>
-                        <mat-slide-toggle (change)="changeStatus($event, i)" [checked]="i.is_active === 1 ? true : false"></mat-slide-toggle>
+                        <mat-slide-toggle (change)="changeStatus($event, i)" [checked]="i.is_active ? true : false"></mat-slide-toggle>
                     </div>
                     <div class="close-btn" (click)="delete(i)"><span class="material-icons">cancel</span></div>
                 </div>

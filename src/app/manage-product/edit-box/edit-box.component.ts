@@ -50,7 +50,7 @@ export class EditBoxComponent implements OnInit {
       if(this.product.highlited_features) this.highlitedFeatures = this.product.highlited_features.split(',');
       if(this.prices) this.product_prices = this.prices;
       if(this.addons) this.product_addons = this.addons;
-      console.log(this.product_val, this.prices, this.addons);
+      // console.log(this.product_val, this.prices, this.addons);
     }
   }
 

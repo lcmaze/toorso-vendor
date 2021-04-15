@@ -29,11 +29,48 @@ export class HeaderComponent implements OnInit {
   userDetails: any;
   ngOnInit() {
     this.userDetails = this.mainData.userDetails;
+    this.getCountries();
   }
 
   logout(){
     this.fAuth.signOut();
     window.location.reload();
+  }
+
+  selectCountry(country: any){
+    this.mainData.selectedCountry.next(country);
+    this.selectedcountry = country;
+    this.getStates(country.country_id);
+  }
+
+  // countries
+  countries: any;
+  getCountries(){
+    this.mainData.getCache(`api/get-countries`).subscribe(data => {
+      this.countries = data;
+      this.countries.forEach(country => {
+        if(country.country_id === 85) {
+          this.selectedcountry = country;
+          this.mainData.selectedCountry.next(country);
+          this.getStates(country.country_id);
+        }
+      })
+    })
+  }
+
+  // states 
+  states: any;
+  getStates(id: any){
+    this.mainData.getCache(`api/get-states?id=${id}`).subscribe(data => {
+      this.states = data.rows;
+      this.states.forEach(state => {
+        if(state.state_id === 1208) {
+          this.selectedstate = state;
+          this.mainData.selectedState.next(state);
+          // console.log(state);
+        }
+      })
+    })
   }
 
 
@@ -46,10 +83,11 @@ export class HeaderComponent implements OnInit {
     this.branchvisible = branchvisible;
     this.statelist = statelist;
     this.selectedflag = selectedflag;
-    console.log(this.selectedflag);
+    // console.log(this.selectedflag);
   }
 
   stateselect(selectedstate : string){
+    this.mainData.selectedState.next(selectedstate);
     this.selectedstate = selectedstate;
   }
 

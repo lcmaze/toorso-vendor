@@ -12,12 +12,18 @@ import { MainService } from '../services/main.service';
 export class ManageComponent implements OnInit {
 
   cdnUrl: string = environment.cdnLink;
+  selectedState: any;
 
   constructor(private mainData: MainService, private http: HttpClient) { }
 
   ngOnInit() {
     this.getVendor();
-    this.getCountry();
+    // this.getCountry();
+    let state = this.mainData.selectedState.subscribe(data => {
+      this.selectedState = data;
+      // console.log(this.selectedState)
+      this.getCities(this.selectedState.state_id);
+    });
   }
 
   // countries

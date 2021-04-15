@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-in-page-head',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InPageHeadComponent implements OnInit {
 
-  constructor() { }
+  @Input('name') name: string;
+  constructor(private mainData: MainService) { }
 
+  userDetails: any;
   ngOnInit() {
+    this.userDetails = this.mainData.selectedVendor;
   }
 
 }

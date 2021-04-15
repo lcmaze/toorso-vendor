@@ -1,10 +1,12 @@
 <div class="bg">
     <div class="w-80 d-flex align-items-center justify-content-between py-3">
-        <div class="name">Kanmadam Resort</div>
-        <div class="details">
-            <span class="plan mr-4">Platinum Plan</span>
-            <span class="cap mr-2">Ends on</span>
-            <span class="date">04/06/2020</span>
-        </div>
+        <ng-container *ngIf="vendorDetails">
+            <div class="name">{{vendorDetails.vendor_name}}</div>
+            <div class="details">
+                <span class="plan mr-4">{{vendorDetails.membership.membership_type}} Plan</span>
+                <span class="cap mr-2">Ends on</span>
+                <span class="date">{{formatDate(vendorDetails.membership)}}</span>
+            </div>
+        </ng-container>
     </div>
 </div>

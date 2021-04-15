@@ -44,26 +44,24 @@ export class ManageProductComponent implements OnInit {
   }
 
   deleteTable(id: any){
-    if(id){
-      // console.log(id, this.products[id], this.products[id])
-      if(!this.products[id]) this.products.splice(id, 1);
-      else{
-        let r = confirm("Are you sure to delete the table?");
-        if(r){
-          let obj = {};
-          obj['product_id'] = this.products[id].product_id;
-          // obj['price_id'] = this.products[id].prices[0].price_id;
-          // obj['addon_id'] = this.products[id].addons[0].addonprice_id;
-          this.mainData.delete(`api/vendor/delete-vendor-product?product_id=${this.products[id].product_id}`).subscribe(data => {
-            if(data) {
-              this.products.splice(id, 1);
-              this.mainData.openToast('Deleted Table!');
-            }
-            else {
-              this.mainData.openToast('Some error occurred!');
-            }
-          })
-        }
+    console.log(id, this.products[id], this.products[id])
+    if(!this.products[id]) this.products.splice(id, 1);
+    else{
+      let r = confirm("Are you sure to delete the table?");
+      if(r){
+        let obj = {};
+        obj['product_id'] = this.products[id].product_id;
+        // obj['price_id'] = this.products[id].prices[0].price_id;
+        // obj['addon_id'] = this.products[id].addons[0].addonprice_id;
+        this.mainData.delete(`api/vendor/delete-vendor-product?product_id=${this.products[id].product_id}`).subscribe(data => {
+          if(data) {
+            this.products.splice(id, 1);
+            this.mainData.openToast('Deleted Table!');
+          }
+          else {
+            this.mainData.openToast('Some error occurred!');
+          }
+        })
       }
     }
   }
