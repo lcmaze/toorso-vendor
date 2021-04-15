@@ -20,8 +20,9 @@ export class ProductFeaturesComponent implements OnInit {
   selectedBranch: any;
   getBranches(){
     this.mainData.get(`api/vendor/get-branches`).subscribe(data => {
-      this.branches = data;
-      this.selectedBranch = data[Object.keys(data)[0]].branch_id;
+      let branch = data['rows'][Object.keys(data['rows'])[0]]
+      this.branches = data['rows'];
+      this.selectedBranch = branch.branch_id;
       this.mainData.selectedBranch = this.selectedBranch;
       this.getFoods();
       this.getTransportations();
@@ -39,11 +40,14 @@ export class ProductFeaturesComponent implements OnInit {
   facilities: any;
   getFacilities(){
     this.mainData.get(`api/vendor/get-facilities?branch_id=${this.selectedBranch}`).subscribe(data => {
-      this.facilities = data;
+      this.facilities = data['rows'];
       for (let i = 0; i < this.facilities.length; i++) {
         this.facilities[i]['checked'] = false;
-        if(this.facilities[i].branch_facility_id) this.facilities[i]['checked'] = true;
-        if(!this.facilities[i].facility_type) this.facilities[i]['facility_type'] = 'free';
+        if(this.facilities[i].branch_facility && this.facilities[i].branch_facility.branch_facility_id) this.facilities[i]['checked'] = true;
+        if(!this.facilities[i].branch_facility) {
+          this.facilities[i].branch_facility = {}; 
+          this.facilities[i].branch_facility['facility_type'] = 'free';
+        }
       }
       // console.log(this.facilities);
     })
@@ -52,22 +56,28 @@ export class ProductFeaturesComponent implements OnInit {
   transportations: any;
   getTransportations(){
     this.mainData.get(`api/vendor/get-transportations?branch_id=${this.selectedBranch}`).subscribe(data => {
-      this.transportations = data;
+      this.transportations = data['rows'];
       for (let i = 0; i < this.transportations.length; i++) {
         this.transportations[i]['checked'] = false;
-        if(this.transportations[i].branch_transportation_id) this.transportations[i]['checked'] = true;
-        if(!this.transportations[i].transportation_type) this.transportations[i]['transportation_type'] = 'free';
+        if(this.transportations[i].branch_transportation && this.transportations[i].branch_transportation.branch_transportation_id) this.transportations[i]['checked'] = true;
+        if(!this.transportations[i].branch_transportation) {
+          this.transportations[i].branch_transportation = {};
+          this.transportations[i].branch_transportation['transportation_type'] = 'free';
+        }
       }
     })
   }
   foods: any;
   getFoods(){
     this.mainData.get(`api/vendor/get-foods?branch_id=${this.selectedBranch}`).subscribe(data => {
-      this.foods = data;
+      this.foods = data['rows'];
       for (let i = 0; i < this.foods.length; i++) {
         this.foods[i]['checked'] = false;
-        if(this.foods[i].branch_food_id) this.foods[i]['checked'] = true;
-        if(!this.foods[i].food_type) this.foods[i]['food_type'] = 'free';
+        if(this.foods[i].branch_food && this.foods[i].branch_food.branch_food_id) this.foods[i]['checked'] = true;
+        if(!this.foods[i].branch_food) {
+          this.foods[i].branch_food = {};
+          this.foods[i].branch_food['food_type'] = 'free';
+        }
       }
     })
   }

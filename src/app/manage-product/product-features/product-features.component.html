@@ -24,14 +24,14 @@
                             </div>
                         </div>
                         <div class="col-3 p-2">
-                            <select class="custom-select" [name]="'facility' + i" [(ngModel)]="f.facility_type">
+                            <select class="custom-select" [name]="'facility' + i" [(ngModel)]="f.branch_facility.facility_type">
                                 <option value="free">Free</option>
                                 <option value="paid">Paid</option>
                                 <option value="on_request">On Request</option>
                             </select>
                         </div>
                         <div class="col-3 p-2">
-                            <input type="text" *ngIf="f.facility_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.facility_price">
+                            <input type="text" *ngIf="f.branch_facility.facility_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_facility.facility_price">
                         </div>
                     </div>
                     <button class="m-3 btn btn-success float-right" (click)="submitFacilities(facilityForm)" [disabled]="facilityForm.invalid">Save</button>
@@ -53,14 +53,14 @@
                             </div>
                         </div>
                         <div class="col-3 p-2">
-                            <select class="custom-select" [name]="'food' + i" [(ngModel)]="f.food_type">
+                            <select class="custom-select" [name]="'food' + i" [(ngModel)]="f.branch_food.food_type">
                                 <option value="free">Free</option>
                                 <option value="paid">Paid</option>
                                 <option value="on_request">On Request</option>
                             </select>
                         </div>
                         <div class="col-3 p-2">
-                            <input type="text" *ngIf="f.food_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.food_price">
+                            <input type="text" *ngIf="f.branch_food.food_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_food.food_price">
                         </div>
                     </div>
                     <button class="m-3 btn btn-success float-right" (click)="submitFood(foodForm)" [disabled]="foodForm.invalid">Save</button>
@@ -81,14 +81,14 @@
                             </div>
                         </div>
                         <div class="col-3 p-2">
-                            <select class="custom-select" [name]="'transportation' + i" [(ngModel)]="f.transportation_type">
+                            <select class="custom-select" [name]="'transportation' + i" [(ngModel)]="f.branch_transportation.transportation_type">
                                 <option value="free">Free</option>
                                 <option value="paid">Paid</option>
                                 <option value="on_request">On Request</option>
                             </select>
                         </div>
                         <div class="col-3 p-2">
-                            <input type="text" *ngIf="f.transportation_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.transportation_price">
+                            <input type="text" *ngIf="f.branch_transportation.transportation_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_transportation.transportation_price">
                         </div>
                     </div>
                     <button class="m-3 btn btn-success float-right" (click)="submitTransportation(transForm)" [disabled]="transForm.invalid">Save</button>

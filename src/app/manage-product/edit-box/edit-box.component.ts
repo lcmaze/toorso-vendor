@@ -48,10 +48,10 @@ export class EditBoxComponent implements OnInit {
       if(this.product.room_numbers) this.roomNumber = this.product.room_numbers.split(',');
       if(this.product.room_amenities) this.roomAmenities = this.product.room_amenities.split(',');
       if(this.product.highlited_features) this.highlitedFeatures = this.product.highlited_features.split(',');
+      if(this.prices) this.product_prices = this.prices;
+      if(this.addons) this.product_addons = this.addons;
+      console.log(this.product_val, this.prices, this.addons);
     }
-    if(this.prices) this.product_prices = this.prices[Object.keys(this.prices)[0]];
-    if(this.addons) this.product_addons = this.addons[Object.keys(this.addons)[0]];
-    // console.log(this.product_val, this.prices, this.addons);
   }
 
   style(): object {

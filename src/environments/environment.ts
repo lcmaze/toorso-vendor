@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://futhub.in/toorso/',
-  cdnLink: 'https://cdn.litsonthomas.com/toorso/'
+  apiUrl: 'http://localhost:3000/',
+  cdnLink: 'https://toorso-bucket.s3.ap-south-1.amazonaws.com/'
 };
 
 /*

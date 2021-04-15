@@ -60,7 +60,7 @@ export class AddnewComponent implements OnInit {
   branch: any;
   getBranch(){
     this.mainData.get(`api/vendor/get-branch-full?id=${this.id}`).subscribe(data => {
-      this.branch = data[Object.keys(data)[0]];
+      this.branch = data['rows'][Object.keys(data['rows'])[0]];
       // console.log(this.branch);
       if(this.branch){
         if(this.branch.vendor_keywords) this.vendorKeywords = this.branch.vendor_keywords.split(',');
@@ -71,11 +71,11 @@ export class AddnewComponent implements OnInit {
   // countries
   countries: any;
   getCountry(){
-    this.mainData.get(`api/vendor/get-countries`).subscribe(data => {
+    this.mainData.get(`api/get-countries`).subscribe(data => {
       this.countries = data;
       if(this.branch) {
-        this.getStates(this.branch.country_id);
-        this.getCities(this.branch.state_id);
+        this.getStates(this.branch.city_info.states_info.country_info.country_id);
+        this.getCities(this.branch.city_info.states_info.state_id);
       }
     })
   }
@@ -90,16 +90,16 @@ export class AddnewComponent implements OnInit {
   // states 
   states: any;
   getStates(id: any){
-    this.mainData.get(`api/vendor/get-states?id=${id}`).subscribe(data => {
-      this.states = data;
+    this.mainData.get(`api/get-states?id=${id}`).subscribe(data => {
+      this.states = data['rows'];
     })
   }
 
   // cities 
   cities: any;
   getCities(id: any){
-    this.mainData.get(`api/vendor/get-cities?id=${id}`).subscribe(data => {
-      this.cities = data;
+    this.mainData.get(`api/get-cities?id=${id}`).subscribe(data => {
+      this.cities = data['rows'];
     })
   }
 

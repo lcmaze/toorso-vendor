@@ -19,8 +19,9 @@ export class ManageProductComponent implements OnInit {
   selectedBranch: any;
   getBranches(){
     this.mainData.get(`api/vendor/get-branches`).subscribe(data => {
-      this.branches = data;
-      this.selectedBranch = data[Object.keys(data)[0]].branch_id;
+      let branch = data['rows'][Object.keys(data['rows'])[0]];
+      this.branches = data['rows'];
+      this.selectedBranch = branch.branch_id;
       this.mainData.selectedBranch = this.selectedBranch;
       this.getProducts();
     })
@@ -31,8 +32,7 @@ export class ManageProductComponent implements OnInit {
   getProducts(){
     this.products = [];
     this.mainData.get(`api/vendor/get-products?branch_id=${this.selectedBranch}`).subscribe(data => {
-      this.products = data;
-      // console.log(this.products);
+      this.products = data['rows'];
       this.showMainBox = true;
     })
   }
@@ -40,7 +40,6 @@ export class ManageProductComponent implements OnInit {
   // change branch 
   changeBranch(branch: any){
     this.mainData.selectedBranch = branch;
-    // console.log(this.mainData.selectedBranch);
     this.getProducts();
   }
 
@@ -53,9 +52,9 @@ export class ManageProductComponent implements OnInit {
         if(r){
           let obj = {};
           obj['product_id'] = this.products[id].product_id;
-          obj['price_id'] = this.products[id].prices[0].price_id;
-          obj['addon_id'] = this.products[id].addons[0].addonprice_id;
-          this.mainData.post(obj, `api/vendor/delete-vendor-product`).subscribe(data => {
+          // obj['price_id'] = this.products[id].prices[0].price_id;
+          // obj['addon_id'] = this.products[id].addons[0].addonprice_id;
+          this.mainData.delete(`api/vendor/delete-vendor-product?product_id=${this.products[id].product_id}`).subscribe(data => {
             if(data) {
               this.products.splice(id, 1);
               this.mainData.openToast('Deleted Table!');

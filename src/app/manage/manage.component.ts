@@ -23,7 +23,7 @@ export class ManageComponent implements OnInit {
   // countries
   countries: any;
   getCountry(){
-    this.mainData.getCache(`api/vendor/get-countries`).subscribe(data => {
+    this.mainData.getCache(`api/get-countries`).subscribe(data => {
       this.countries = data;
     })
   }
@@ -33,25 +33,31 @@ export class ManageComponent implements OnInit {
     this.mainData.get(`api/vendor/get-vendor`).subscribe(data => {
       this.vendor = data[Object.keys(data)[0]];
       // console.log(this.vendor);
-      this.getStates(this.vendor.country_id);
-      this.getCities(this.vendor.state_id);
+      this.getStates(this.vendor.city_info.states_info.country_info.country_id);
+      this.getCities(this.vendor.city_info.states_info.state_id);
     })
   }
 
   // states 
   states: any;
   getStates(id: any){
-    this.mainData.getCache(`api/vendor/get-states?id=${id}`).subscribe(data => {
-      this.states = data;
+    this.mainData.getCache(`api/get-states?id=${id}`).subscribe(data => {
+      this.states = data.rows;
     })
   }
 
   // cities 
   cities: any;
   getCities(id: any){
-    this.mainData.getCache(`api/vendor/get-cities?id=${id}`).subscribe(data => {
-      this.cities = data;
+    this.mainData.getCache(`api/get-cities?id=${id}`).subscribe(data => {
+      this.cities = data.rows;
     })
+  }
+
+  updateWaiting(){
+    if(this.vendor){
+
+    }
   }
 
   // update vendor details

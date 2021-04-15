@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
   branches: any;
   getBranches(){
     this.mainData.get(`api/vendor/get-branches`).subscribe(data => {
-      this.branches = data;
+      this.branches = data['rows'];
     })
   }
 
