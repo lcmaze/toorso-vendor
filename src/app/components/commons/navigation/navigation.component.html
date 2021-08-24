@@ -6,21 +6,21 @@
 </div>
 
 <div class="filter-box">
-    <li><a routerLink="/">Dashboard</a></li>
-    <li><a routerLink="/manage">Manage Database</a></li>
+    <li><a routerLink="/" [ngClass]="view === '/' ? 'selected' : ''" (click)="view = '/'">Dashboard</a></li>
+    <li><a routerLink="/manage" [ngClass]="view === 'manage' ? 'selected' : ''" (click)="view = 'manage'">Manage Database</a></li>
     <!-- <div class="sub">
         <li><a routerLink="/manage/add">Add Branch</a></li>
         <li *ngFor="let b of branches"><a [routerLink]="'/manage/' + b.branch_id">{{b.vendor_name}}</a></li>
     </div> -->
-    <li><a routerLink="/manage-product">Manage Product</a></li>
+    <li><a routerLink="/manage-product" [ngClass]="view === 'manage-product' ? 'selected' : ''" (click)="view = 'manage-product'">Manage Product</a></li>
     <div class="sub">
-        <li><a routerLink="/manage-product/features">Product Features</a></li>
-        <li><a routerLink="/manage-product/promotion">Promotion</a></li>
+        <li><a routerLink="/manage-product/features" [ngClass]="view === 'features' ? 'selected' : ''" (click)="view = 'features'">Product Features</a></li>
+        <li><a routerLink="/manage-product/promotion" [ngClass]="view === 'promotion' ? 'selected' : ''" (click)="view = 'promotion'">Promotion</a></li>
     </div>
-    <li><a routerLink="/upload">Upload Photos & Videos</a></li>
-    <li><a routerLink="/booking">Booking Status</a></li>
+    <li><a routerLink="/upload" [ngClass]="view === 'upload' ? 'selected' : ''" (click)="view = 'upload'">Upload Photos & Videos</a></li>
+    <li><a routerLink="/booking" [ngClass]="view === 'booking' ? 'selected' : ''" (click)="view = 'booking'">Booking Status</a></li>
     <div class="sub">
-        <li><a routerLink="/booking/guest">Guest Details</a></li>
+        <li><a routerLink="/booking/guest" [ngClass]="view === 'guest' ? 'selected' : ''" (click)="view = 'guest'">Guest Details</a></li>
     </div>
-    <li><a routerLink="/sales">Sales & Invoice</a></li>
+    <li><a routerLink="/sales" [ngClass]="view === 'sales' ? 'selected' : ''" (click)="view = 'sales'">Sales & Invoice</a></li>
 </div>

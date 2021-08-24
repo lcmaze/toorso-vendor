@@ -10,6 +10,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(private mainData: MainService) { }
 
+  view: any = '';
   ngOnInit() {
     this.getBranches()
   }

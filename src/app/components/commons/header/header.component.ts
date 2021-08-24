@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { MatDialog } from '@angular/material/dialog';
+import { NgForm } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MainService } from 'src/app/services/main.service';
 
 @Component({
@@ -37,6 +38,17 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
 
+  reset(){
+    const dialogRef = this.dialog.open(ResetDialogComponent, {
+      width: '250px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   selectCountry(country: any){
     this.mainData.selectedCountry.next(country);
     this.selectedcountry = country;
@@ -49,7 +61,7 @@ export class HeaderComponent implements OnInit {
     this.mainData.getCache(`api/get-countries`).subscribe(data => {
       this.countries = data;
       this.countries.forEach(country => {
-        if(country.country_id === 85) {
+        if(country.country_id === 221) {
           this.selectedcountry = country;
           this.mainData.selectedCountry.next(country);
           this.getStates(country.country_id);
@@ -64,7 +76,7 @@ export class HeaderComponent implements OnInit {
     this.mainData.getCache(`api/get-states?id=${id}`).subscribe(data => {
       this.states = data.rows;
       this.states.forEach(state => {
-        if(state.state_id === 1208) {
+        if(state.state_id === 4045) {
           this.selectedstate = state;
           this.mainData.selectedState.next(state);
           // console.log(state);
@@ -89,6 +101,31 @@ export class HeaderComponent implements OnInit {
   stateselect(selectedstate : string){
     this.mainData.selectedState.next(selectedstate);
     this.selectedstate = selectedstate;
+  }
+
+}
+
+@Component({
+  selector: 'reset-dialog',
+  templateUrl: 'reset-dialog.html',
+})
+export class ResetDialogComponent {
+
+  constructor(public dialogRef: MatDialogRef<ResetDialogComponent>, private fAuth: AngularFireAuth, private mainData: MainService){}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  resetPassword(form: NgForm){
+    if(form.valid){
+      this.fAuth.sendPasswordResetEmail(form.value.email).then(data => {
+        this.mainData.openToast("Reset Email Send!");
+        this.onNoClick();
+      }).catch(err => {
+        this.mainData.openToast(err.message);
+      })
+    }
   }
 
 }

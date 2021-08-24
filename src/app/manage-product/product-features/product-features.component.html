@@ -1,148 +1,155 @@
 <app-in-page-head name="Features"></app-in-page-head>
 
-<div class="row">
-    <div class="col-md-6 p-2 px-md-3">
-        <label>Choose Product</label>
-        <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="selectedBranch" (change)="changeBranch(selectedBranch)">
-        <option [value]="b.branch_id" *ngFor="let b of branches">{{b.vendor_name}}</option>
-      </select>
-    </div>
-</div>
+<ng-container *ngIf="membership_type === 'free'">
+    <h5 class="mt-3">Please upgrade to <strong>Premium Plan</strong> to access this privilege!</h5>
+</ng-container>
 
-<div class="row">
-    <div class="col-md-6 p-2 px-md-3">
-        <form #facilityForm="ngForm">
-            <div class="box">
-                <div class="head">Facilities</div>
-                <div class="cnt px-2">
+<ng-container *ngIf="membership_type != 'free'">
+    <div class="row">
+        <div class="col-md-6 p-2 px-md-3">
+            <label>Choose Product</label>
+            <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="selectedBranch" (change)="changeBranch(selectedBranch)">
+            <option [value]="b.branch_id" *ngFor="let b of branches">{{b.vendor_name}}</option>
+          </select>
+        </div>
+    </div>
     
-                    <div class="row mx-0 align-items-center" style="border-bottom: 1px solid #eaeaea;" *ngFor="let f of facilities;let i = index">
-                        <div class="col-6 p-2">
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input type="checkbox" class="custom-control-input" [id]="'check' + i" [name]="'facility_check' + i" [(ngModel)]="f.checked">
-                                <label class="custom-control-label" [for]="'check' + i"><span class="filterfont mr-sm-1">{{f.icon}}</span> {{f.facility_name}}</label>
+    <div class="row">
+        <div class="col-md-6 p-2 px-md-3">
+            <form #facilityForm="ngForm">
+                <div class="box">
+                    <div class="head">Facilities</div>
+                    <div class="cnt px-2">
+        
+                        <div class="row mx-0 align-items-center" style="border-bottom: 1px solid #eaeaea;" *ngFor="let f of facilities;let i = index">
+                            <div class="col-6 p-2">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" [id]="'check' + i" [name]="'facility_check' + i" [(ngModel)]="f.checked">
+                                    <label class="custom-control-label" [for]="'check' + i"><span class="filterfont mr-sm-1">{{f.icon}}</span> {{f.facility_name}}</label>
+                                </div>
+                            </div>
+                            <div class="col-3 p-2">
+                                <select class="custom-select" [name]="'facility' + i" [(ngModel)]="f.branch_facility.facility_type">
+                                    <option value="free">Free</option>
+                                    <option value="paid">Paid</option>
+                                    <option value="on_request">On Request</option>
+                                </select>
+                            </div>
+                            <div class="col-3 p-2">
+                                <input type="text" *ngIf="f.branch_facility.facility_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_facility.facility_price">
                             </div>
                         </div>
-                        <div class="col-3 p-2">
-                            <select class="custom-select" [name]="'facility' + i" [(ngModel)]="f.branch_facility.facility_type">
-                                <option value="free">Free</option>
-                                <option value="paid">Paid</option>
-                                <option value="on_request">On Request</option>
-                            </select>
-                        </div>
-                        <div class="col-3 p-2">
-                            <input type="text" *ngIf="f.branch_facility.facility_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_facility.facility_price">
-                        </div>
+                        <button class="m-3 btn btn-success float-right" (click)="submitFacilities(facilityForm)" [disabled]="facilityForm.invalid">Save</button>
                     </div>
-                    <button class="m-3 btn btn-success float-right" (click)="submitFacilities(facilityForm)" [disabled]="facilityForm.invalid">Save</button>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div class="col-md-6 p-2 px-md-3">
-        <form #foodForm="ngForm">
-            <div class="box mb-4">
-                <div class="head">Food Arrangements</div>
-                <div class="cnt px-2">
-    
-                    <div class="row mx-0 align-items-center" style="border-bottom: 1px solid #eaeaea;" *ngFor="let f of foods;let i = index">
-                        <div class="col-6 p-2">
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input type="checkbox" class="custom-control-input" [id]="'fcheck' + i" [name]="'food_check' + i" [(ngModel)]="f.checked">
-                                <label class="custom-control-label" [for]="'fcheck' + i"><span class="filterfont mr-sm-1">{{f.icon}}</span> {{f.food_name}}</label>
+            </form>
+        </div>
+        <div class="col-md-6 p-2 px-md-3">
+            <form #foodForm="ngForm">
+                <div class="box mb-4">
+                    <div class="head">Food Arrangements</div>
+                    <div class="cnt px-2">
+        
+                        <div class="row mx-0 align-items-center" style="border-bottom: 1px solid #eaeaea;" *ngFor="let f of foods;let i = index">
+                            <div class="col-6 p-2">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" [id]="'fcheck' + i" [name]="'food_check' + i" [(ngModel)]="f.checked">
+                                    <label class="custom-control-label" [for]="'fcheck' + i"><span class="filterfont mr-sm-1">{{f.icon}}</span> {{f.food_name}}</label>
+                                </div>
+                            </div>
+                            <div class="col-3 p-2">
+                                <select class="custom-select" [name]="'food' + i" [(ngModel)]="f.branch_food.food_type">
+                                    <option value="free">Free</option>
+                                    <option value="paid">Paid</option>
+                                    <option value="on_request">On Request</option>
+                                </select>
+                            </div>
+                            <div class="col-3 p-2">
+                                <input type="text" *ngIf="f.branch_food.food_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_food.food_price">
                             </div>
                         </div>
-                        <div class="col-3 p-2">
-                            <select class="custom-select" [name]="'food' + i" [(ngModel)]="f.branch_food.food_type">
-                                <option value="free">Free</option>
-                                <option value="paid">Paid</option>
-                                <option value="on_request">On Request</option>
-                            </select>
-                        </div>
-                        <div class="col-3 p-2">
-                            <input type="text" *ngIf="f.branch_food.food_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_food.food_price">
-                        </div>
+                        <button class="m-3 btn btn-success float-right" (click)="submitFood(foodForm)" [disabled]="foodForm.invalid">Save</button>
+        
                     </div>
-                    <button class="m-3 btn btn-success float-right" (click)="submitFood(foodForm)" [disabled]="foodForm.invalid">Save</button>
-    
                 </div>
-            </div>
-        </form>
-        <form #transForm="ngForm">
-            <div class="box mb-4">
-                <div class="head">Transportation Facilities</div>
-                <div class="cnt px-2">
-    
-                    <div class="row mx-0 align-items-center" style="border-bottom: 1px solid #eaeaea;" *ngFor="let f of transportations;let i = index">
-                        <div class="col-6 p-2">
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input type="checkbox" class="custom-control-input" [id]="'tcheck' + i" [name]="'transportation_check' + i" [(ngModel)]="f.checked">
-                                <label class="custom-control-label" [for]="'tcheck' + i"><span class="filterfont mr-sm-1">{{f.icon}}</span> {{f.transportation_name}}</label>
+            </form>
+            <form #transForm="ngForm">
+                <div class="box mb-4">
+                    <div class="head">Transportation Facilities</div>
+                    <div class="cnt px-2">
+        
+                        <div class="row mx-0 align-items-center" style="border-bottom: 1px solid #eaeaea;" *ngFor="let f of transportations;let i = index">
+                            <div class="col-6 p-2">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" [id]="'tcheck' + i" [name]="'transportation_check' + i" [(ngModel)]="f.checked">
+                                    <label class="custom-control-label" [for]="'tcheck' + i"><span class="filterfont mr-sm-1">{{f.icon}}</span> {{f.transportation_name}}</label>
+                                </div>
+                            </div>
+                            <div class="col-3 p-2">
+                                <select class="custom-select" [name]="'transportation' + i" [(ngModel)]="f.branch_transportation.transportation_type">
+                                    <option value="free">Free</option>
+                                    <option value="paid">Paid</option>
+                                    <option value="on_request">On Request</option>
+                                </select>
+                            </div>
+                            <div class="col-3 p-2">
+                                <input type="text" *ngIf="f.branch_transportation.transportation_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_transportation.transportation_price">
                             </div>
                         </div>
-                        <div class="col-3 p-2">
-                            <select class="custom-select" [name]="'transportation' + i" [(ngModel)]="f.branch_transportation.transportation_type">
-                                <option value="free">Free</option>
-                                <option value="paid">Paid</option>
-                                <option value="on_request">On Request</option>
-                            </select>
-                        </div>
-                        <div class="col-3 p-2">
-                            <input type="text" *ngIf="f.branch_transportation.transportation_type === 'paid'" class="form-control" placeholder="Price" [name]="'price' + i" [(ngModel)]="f.branch_transportation.transportation_price">
-                        </div>
+                        <button class="m-3 btn btn-success float-right" (click)="submitTransportation(transForm)" [disabled]="transForm.invalid">Save</button>
+        
                     </div>
-                    <button class="m-3 btn btn-success float-right" (click)="submitTransportation(transForm)" [disabled]="transForm.invalid">Save</button>
+                </div>
+            </form>
     
-                </div>
-            </div>
-        </form>
-
-        <!-- <div class="box mb-4">
-            <div class="head">Promotion</div>
-            <div class="cnt px-3 pb-3">
-                <div class="row">
-                    <div class="col-6 mt-2">
-                        <div>
-                            <label>Promotion Text</label>
-                            <input type="text" class="form-control">
+            <!-- <div class="box mb-4">
+                <div class="head">Promotion</div>
+                <div class="cnt px-3 pb-3">
+                    <div class="row">
+                        <div class="col-6 mt-2">
+                            <div>
+                                <label>Promotion Text</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <label>Select Room</label>
+                                <select class="form-control">
+                                   <option disabled selected>Choose Any Room Type</option>
+                                   <option value="1">One</option>
+                               </select>
+                            </div>
                         </div>
-                        <div>
-                            <label>Select Room</label>
-                            <select class="form-control">
-                               <option disabled selected>Choose Any Room Type</option>
-                               <option value="1">One</option>
-                           </select>
+                        <div class="col-6 mt-2">
+                            <label>Banner Color</label>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" required>
+                                <label class="custom-control-label" for="radio1">Red</label>
+                            </div>
+                            <div class="custom-control custom-radio mb-3">
+                                <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" required>
+                                <label class="custom-control-label" for="radio2">Yellow</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label>Banner Color</label>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" required>
-                            <label class="custom-control-label" for="radio1">Red</label>
+    
+                        <div class="col-6 mt-2">
+                            <div>
+                                <label>Discount %</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <label>Choose Date</label>
+                                <app-date-range></app-date-range>
+                            </div>
                         </div>
-                        <div class="custom-control custom-radio mb-3">
-                            <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" required>
-                            <label class="custom-control-label" for="radio2">Yellow</label>
-                        </div>
-                    </div>
-
-                    <div class="col-6 mt-2">
-                        <div>
-                            <label>Discount %</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div>
-                            <label>Choose Date</label>
-                            <app-date-range></app-date-range>
-                        </div>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <div class="prof-pic">
-                            <img class="w-100" src="assets/images/offer.jpeg" alt="">
-                            <button mat-raised-button class="w-100 mt-2">Change Image</button>
+                        <div class="col-6 mt-2">
+                            <div class="prof-pic">
+                                <img class="w-100" src="assets/images/offer.jpeg" alt="">
+                                <button mat-raised-button class="w-100 mt-2">Change Image</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
+        </div>
     </div>
+</ng-container>

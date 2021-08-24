@@ -10,8 +10,14 @@ export class ManageProductComponent implements OnInit {
 
   constructor(private mainData: MainService) { }
 
+  membership_type: any;
   ngOnInit() {
-    this.getBranches();
+    this.mainData.get(`api/vendor/get-vendor`).subscribe(data => {
+      this.membership_type = data[0].membership.membership_type;
+      if(this.membership_type != 'free'){
+        this.getBranches();
+      }
+    });
   }
 
   // get branches
