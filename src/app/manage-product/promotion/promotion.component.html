@@ -1,6 +1,10 @@
 <app-in-page-head name="Promotions"></app-in-page-head>
 
-<div class="row" *ngIf="promotions">
+<ng-container *ngIf="membership_type === 'free'">
+    <h5 class="mt-3">Please upgrade to <strong>Premium Plan</strong> to access this privilege!</h5>
+</ng-container>
+
+<div class="row" *ngIf="promotions && membership_type != 'free'">
     <div class="col-md-6 p-2 px-md-3">
 
         <form #promotionForm="ngForm">

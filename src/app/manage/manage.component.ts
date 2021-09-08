@@ -17,13 +17,13 @@ export class ManageComponent implements OnInit {
   constructor(private mainData: MainService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.getVendor();
     // this.getCountry();
     let state = this.mainData.selectedState.subscribe(data => {
       this.selectedState = data;
       // console.log(this.selectedState)
       this.getCities(this.selectedState.state_id);
     });
+    this.getVendor();
   }
 
   // countries
@@ -38,9 +38,11 @@ export class ManageComponent implements OnInit {
   getVendor(){
     this.mainData.get(`api/vendor/get-vendor`).subscribe(data => {
       this.vendor = data[Object.keys(data)[0]];
-      // console.log(this.vendor);
-      this.getStates(this.vendor.city_info.states_info.country_info.country_id);
-      this.getCities(this.vendor.city_info.states_info.state_id);
+      // console.log(this.selectedState)
+      if(this.vendor.city_info) this.getStates(this.vendor.city_info.states_info.country_info.country_id);
+      else this.getStates(this.selectedState.country_info.country_id);
+      if(this.vendor.city_info) this.getCities(this.vendor.city_info.states_info.state_id);
+      else this.getCities(this.selectedState.state_id);
     })
   }
 

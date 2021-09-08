@@ -15,10 +15,15 @@ export class PromotionComponent implements OnInit {
   constructor(private mainData: MainService, private http: HttpClient) { }
 
   cdnUrl: string = environment.cdnLink;
-
+  membership_type: any;
   ngOnInit(): void {
-    this.getPromotion();
-    this.getProducts();
+    this.mainData.get(`api/vendor/get-vendor`).subscribe(data => {
+      this.membership_type = data[0].membership.membership_type;
+      if(this.membership_type != 'free'){
+        this.getPromotion();
+        this.getProducts();
+      }
+    });
   }
 
   promotions: any;
